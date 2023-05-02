@@ -1,6 +1,6 @@
-# AGAE
+# AGE
 
-Acordar Get And Extract is a python tool that retrieves the datasets from the ACORDAR collection and extracts from valid RDF files `literals, classes, entities , properties`
+Acordar Get and Extract is a python tool that retrieves the datasets from the ACORDAR collection and extracts from valid RDF files `literals, classes, entities , properties`
 
 ## Usage
 
