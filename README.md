@@ -58,7 +58,7 @@ datasets
     ],
     "entities": [
         "Nea8b52151b7e4a4c891e238f275b84ae",
-        ...  
+        ...
     ],
     "properties": [
         "http://schema.org/longitude",

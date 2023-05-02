@@ -37,14 +37,12 @@ Benchmark on a toy collection composed of 130 datasets
 |parallel_dataset_extractor.py|109.784ms  |
 
 A dataset is complete if all files have been downloaded and no file has thrown any error while mining it,
-so in the `metadata.json` both the conditions are satisfied:
+so in the `metadata.json` all the conditions are satisfied:
 - `used_files` is greater then zero
 - `failed_download_urls` is an empty list
 - `unused_files` is an empty list
 
-Files which size is more than 100MB are left out from the parsing.
-
-### RDFLib and machine limitation
+### RDFLib and RAM usage
 
 In order to tackle the memory usage of RDFLib I removed from my collection all the files which were more than 100MB in size.
 Assuming `datasets` is the folder from the current working directory in which datasets are stored, by running you can find all the datasets which size is more then 100MB
