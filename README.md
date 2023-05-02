@@ -1,6 +1,6 @@
 # AGE
 
-Acordar Get and Extract is a python tool that retrieves the datasets from the ACORDAR collection and extracts from valid RDF files `literals, classes, entities , properties`
+Acordar Get and Extract is a python tool that retrieves the datasets from the ACORDAR collection and extracts from valid RDF files `literals, classes, entities, properties`
 
 ## Usage
 
@@ -16,7 +16,7 @@ python3 datasets_downloader.py ACORDAR/Data/datasets.json
 
 Start the extraction of the data from the downloaded files (can take a long time)
 ```sh
-time nice -n 19 python3 parallel_datasets_extractor.py --with-log datasets
+time nice -n 19 python3 parallel_datasets_extractor.py datasets
 ```
 
 
