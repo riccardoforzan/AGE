@@ -14,7 +14,7 @@ from functools import partial
 from rich.progress import Progress
 from multiprocessing import Pool, cpu_count
 
-RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld"]
+RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
 
 SIZE_LIMIT = 100 * 1024 * 1024  # 100 MB
 
@@ -70,7 +70,7 @@ def get_classes(graph) -> list:
 
 def get_entities(graph) -> list:
     q = """
-    SELECT ?s ?label
+    SELECT ?s
     WHERE {
         ?s a ?class .
     }
