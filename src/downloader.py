@@ -17,7 +17,7 @@ from pathlib import Path
 from slugify import slugify
 
 # Accepted file suffixes
-RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld"]
+RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
 
 # Logging setup
 logging.basicConfig(
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("file", type=str, help="File that contains the dataset (JSON)")
     parser.add_argument(
-        "--start-from", type=int, help="Start downloading from the given index"
+        "--start-from", type=int, help="Start downloading from the given index (included)"
     )
     args = parser.parse_args()
 
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     index = 0
 
     # start processing each dataset
-    datasets = data["datasets"]
+    datasets = sorted(data["datasets"], key=lambda d: int(d['dataset_id']))
 
     for entry in datasets:
         dataset_id = entry["dataset_id"]
