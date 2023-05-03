@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>stats</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>phase_1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15178,8 +15178,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># scan the directory containing the downloaded datasets</span>
-<span class="n">datasets</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
-<span class="n">datasets</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 <span class="n">total_datasets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
 </pre></div>
 
@@ -15188,6 +15187,377 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Check-datasets-with-more-than-1-file-downloaded">Check datasets with more than 1 file downloaded<a class="anchor-link" href="#Check-datasets-with-more-than-1-file-downloaded">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datasets_with_more_than_one_file_downloaded</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
+    <span class="n">metadata_file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s2">/metadata.json&quot;</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metadata_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;downloaded_urls&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">):</span>
+            <span class="n">datasets_with_more_than_one_file_downloaded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datasets with more than one file downloaded: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets_with_more_than_one_file_downloaded</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Datasets with more than one file downloaded: 250
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="n">datasets_with_more_than_one_file_downloaded</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>datasets/1
+datasets/2
+datasets/6
+datasets/7
+datasets/83
+datasets/559
+datasets/561
+datasets/562
+datasets/10093
+datasets/12513
+datasets/13252
+datasets/13254
+datasets/13263
+datasets/13279
+datasets/13283
+datasets/13284
+datasets/13288
+datasets/13290
+datasets/13291
+datasets/13299
+datasets/13319
+datasets/13334
+datasets/13339
+datasets/13347
+datasets/13351
+datasets/13356
+datasets/13357
+datasets/13368
+datasets/13369
+datasets/13378
+datasets/13384
+datasets/13388
+datasets/13394
+datasets/13400
+datasets/13412
+datasets/13421
+datasets/13452
+datasets/13461
+datasets/13469
+datasets/13471
+datasets/13482
+datasets/13506
+datasets/13522
+datasets/13541
+datasets/13565
+datasets/13568
+datasets/13577
+datasets/13581
+datasets/13582
+datasets/13590
+datasets/13594
+datasets/13600
+datasets/13622
+datasets/13623
+datasets/13633
+datasets/13683
+datasets/13715
+datasets/13759
+datasets/13796
+datasets/13822
+datasets/13845
+datasets/13902
+datasets/13990
+datasets/13997
+datasets/14013
+datasets/14050
+datasets/14054
+datasets/14079
+datasets/14080
+datasets/14084
+datasets/14160
+datasets/14195
+datasets/14196
+datasets/14197
+datasets/14198
+datasets/14252
+datasets/14277
+datasets/14292
+datasets/14308
+datasets/14324
+datasets/14336
+datasets/14344
+datasets/14364
+datasets/14382
+datasets/14387
+datasets/14396
+datasets/14411
+datasets/14417
+datasets/14418
+datasets/14430
+datasets/14451
+datasets/14471
+datasets/14472
+datasets/14473
+datasets/14486
+datasets/14491
+datasets/14493
+datasets/14503
+datasets/14517
+datasets/14519
+datasets/14520
+datasets/14530
+datasets/14558
+datasets/14580
+datasets/14583
+datasets/14587
+datasets/14599
+datasets/14603
+datasets/14604
+datasets/14636
+datasets/14637
+datasets/14735
+datasets/14801
+datasets/14806
+datasets/14821
+datasets/14822
+datasets/14916
+datasets/14921
+datasets/15001
+datasets/15002
+datasets/15003
+datasets/15004
+datasets/15005
+datasets/15006
+datasets/15007
+datasets/15008
+datasets/15009
+datasets/15010
+datasets/15011
+datasets/15012
+datasets/15013
+datasets/15056
+datasets/15059
+datasets/15082
+datasets/15092
+datasets/15144
+datasets/15150
+datasets/15173
+datasets/15174
+datasets/15175
+datasets/15176
+datasets/15186
+datasets/15187
+datasets/15191
+datasets/15192
+datasets/15205
+datasets/15243
+datasets/15245
+datasets/15261
+datasets/15282
+datasets/15333
+datasets/15381
+datasets/15414
+datasets/15458
+datasets/15550
+datasets/15636
+datasets/15658
+datasets/15681
+datasets/15729
+datasets/15730
+datasets/15736
+datasets/15737
+datasets/15748
+datasets/15766
+datasets/15767
+datasets/15771
+datasets/15774
+datasets/15779
+datasets/15788
+datasets/15798
+datasets/15803
+datasets/15868
+datasets/15881
+datasets/15882
+datasets/15884
+datasets/15885
+datasets/15887
+datasets/15888
+datasets/15890
+datasets/15892
+datasets/15931
+datasets/15932
+datasets/15933
+datasets/15934
+datasets/15935
+datasets/15936
+datasets/15937
+datasets/15938
+datasets/15939
+datasets/15940
+datasets/15941
+datasets/15942
+datasets/15945
+datasets/15960
+datasets/15969
+datasets/15970
+datasets/15976
+datasets/15977
+datasets/15978
+datasets/15980
+datasets/15998
+datasets/16034
+datasets/16035
+datasets/16036
+datasets/16037
+datasets/16038
+datasets/16039
+datasets/16040
+datasets/16041
+datasets/16042
+datasets/16043
+datasets/16044
+datasets/16045
+datasets/16046
+datasets/16047
+datasets/16048
+datasets/16049
+datasets/16050
+datasets/16051
+datasets/16052
+datasets/16053
+datasets/16054
+datasets/16055
+datasets/16056
+datasets/16057
+datasets/16058
+datasets/16059
+datasets/16060
+datasets/16061
+datasets/16062
+datasets/16063
+datasets/16064
+datasets/16065
+datasets/16066
+datasets/16067
+datasets/16068
+datasets/16069
+datasets/16070
+datasets/16072
+datasets/16073
+datasets/16074
+datasets/16075
+datasets/16076
+datasets/16077
+datasets/16078
+datasets/21487
+datasets/21495
+datasets/21518
+datasets/21526
+datasets/21532
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Check-the-processing-status-for-each-dataset">Check the processing status for each dataset<a class="anchor-link" href="#Check-the-processing-status-for-each-dataset">&#182;</a></h3>
+</div>
+</div>
+</div>
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15342,6 +15712,96 @@ Not processed datasets: 0
 </div>
 </div>
 </div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Files-that-are-too-big-to-be-processed">Files that are too big to be processed<a class="anchor-link" href="#Files-that-are-too-big-to-be-processed">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Files that are too big (&gt;100MB) that have not been analyzed</span>
+
+<span class="n">SIZE_LIMIT</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>  <span class="c1"># 100 MB</span>
+
+<span class="n">EXCLUDE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;metadata.json&quot;</span><span class="p">]</span>     <span class="c1"># generated files, that should be excluded because usually are not target for extraction</span>
+
+<span class="n">file_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">subdirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">EXCLUDE</span><span class="p">:</span>
+            <span class="n">file_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+    <span class="c1"># Getting the size in a variable</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+    <span class="c1"># Print the files that meet the condition</span>
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">SIZE_LIMIT</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; is: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">size</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;MB&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>datasets/13263/govwild-rdf-2012-01-30.zip is: 234MB
+datasets/21023/2016-allievi-partecipanti.nt is: 106MB
+datasets/11580/rows.rdf is: 335MB
+datasets/13565/download-20120123.rdf is: 458MB
+datasets/21532/jrcnames-uri.zip is: 756MB
+datasets/2/ppg-sf-dump.rdf is: 108MB
+datasets/15243/en.rdf is: 3995MB
+datasets/15243/fr.rdf is: 3707MB
+datasets/6/ppg-sf-dump.rdf is: 108MB
+datasets/13368/all-geonames-rdf.zip is: 707MB
+datasets/14364/govwild-rdf-2012-01-30.zip is: 234MB
+datasets/14344/all-geonames-rdf.zip is: 707MB
+datasets/13461/all-languages.tar is: 16669MB
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Files-that-potentially-can-be-processed">Files that potentially can be processed<a class="anchor-link" href="#Files-that-potentially-can-be-processed">&#182;</a></h3>
+</div>
+</div>
+</div>
 </div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15417,6 +15877,75 @@ Not processed datasets: 0
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>ID        RDF UNPARSABLE                                                                                                                                                                                                                                                                                              OTHER UNPARSABLE
+2         [&#39;ppg-sf-dump.rdf&#39;]                                                                                                                                                                                                                                                                                         []
+6         [&#39;ppg-sf-dump.rdf&#39;]                                                                                                                                                                                                                                                                                         []
+561       [&#39;covidcountystatistics.ttl&#39;, &#39;covidstatisticsprofile.ttl&#39;]                                                                                                                                                                                                                                                 []
+569       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+573       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+574       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+576       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+588       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+599       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+615       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+618       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+622       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+623       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+633       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+635       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+636       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+644       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+659       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+684       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+687       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+725       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+726       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+743       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+748       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+753       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+764       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+769       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+772       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+773       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+780       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+784       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+786       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+794       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+807       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+811       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+818       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+830       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+831       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+837       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+849       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+858       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+859       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+861       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+880       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+888       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+894       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+895       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+2210      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+2556      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+4354      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5364      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5451      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5662      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5663      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5665      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5719      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5720      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5721      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5739      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5740      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5741      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5742      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5743      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+5744      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+6046      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+8112      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+9298      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+9461      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
+9692      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 10144     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 10145     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 10235     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
@@ -15656,7 +16185,6 @@ Not processed datasets: 0
 17913     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 17925     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 19019     [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-2         [&#39;ppg-sf-dump.rdf&#39;]                                                                                                                                                                                                                                                                                         []
 21023     [&#39;2016-allievi-partecipanti.nt&#39;]                                                                                                                                                                                                                                                                            []
 21468     []                                                                                                                                                                                                                                                                                                          [&#39;proposte-qtxt-select-20-20where-20-7b-s-20-p-20-o-7d-20limit-201000&#39;]
 21522     [&#39;rdfdatamodel-immobile.rdf&#39;]                                                                                                                                                                                                                                                                               []
@@ -15670,9 +16198,7 @@ Not processed datasets: 0
 21682     [&#39;mf-portfif-2-th-12.rdf&#39;]                                                                                                                                                                                                                                                                                  []
 21683     [&#39;mf-portfif-1-th-12.rdf&#39;]                                                                                                                                                                                                                                                                                  []
 21685     [&#39;mf-regis-th-12.rdf&#39;]                                                                                                                                                                                                                                                                                      []
-2210      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 24154     [&#39;tbgy-vw5z.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-2556      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 29412     [&#39;kc9i-wq85.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 29436     [&#39;cnfp-tsxc.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 29783     [&#39;qizy-d2wf.rdf&#39;]                                                                                                                                                                                                                                                                                           []
@@ -15758,7 +16284,6 @@ Not processed datasets: 0
 41706     [&#39;gz3r-fk2y.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 41707     [&#39;6sdr-8fgz.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 43154     [&#39;3e5s-3q2t.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-4354      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 44016     [&#39;6x9d-idz4.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 44051     [&#39;cf7e-dhrb.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 44088     [&#39;tzak-8e66.rdf&#39;]                                                                                                                                                                                                                                                                                           []
@@ -15789,8 +16314,6 @@ Not processed datasets: 0
 52690     [&#39;ncz3-ptfk.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 52743     [&#39;nwdp-pxq4.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 52856     [&#39;yay2-kfah.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-5364      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5451      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 54958     [&#39;hqa9-fu65.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 54959     [&#39;26n4-t3i2.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 54960     [&#39;bxas-tthn.rdf&#39;]                                                                                                                                                                                                                                                                                           []
@@ -15806,34 +16329,6 @@ Not processed datasets: 0
 54970     [&#39;aa8h-5r4x.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 54971     [&#39;bn76-emh9.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 54972     [&#39;w5r2-3t5j.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-561       [&#39;covidcountystatistics.ttl&#39;, &#39;covidstatisticsprofile.ttl&#39;]                                                                                                                                                                                                                                                 []
-5662      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5663      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5665      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-569       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5719      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5720      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5721      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-573       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5739      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-574       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5740      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5741      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5742      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5743      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-5744      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-576       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-588       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-599       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-6         [&#39;ppg-sf-dump.rdf&#39;]                                                                                                                                                                                                                                                                                         []
-6046      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-615       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-618       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-622       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-623       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-633       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-635       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-636       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 63637     [&#39;mdmf-aswt.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 63805     [&#39;giq8-gspk.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 63944     [&#39;c34u-vnew.rdf&#39;]                                                                                                                                                                                                                                                                                           []
@@ -15852,55 +16347,20 @@ Not processed datasets: 0
 64194     [&#39;5t3u-serj.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 64200     [&#39;b3bu-fswq.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 64225     [&#39;bhrt-29rb.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-644       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 65708     [&#39;myju-bx58.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-659       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 65952     [&#39;snxs-8atp.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 66005     [&#39;2ynm-erms.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 66165     [&#39;khtu-ck6k.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 66467     [&#39;tb7s-6pqn.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 68298     [&#39;2qji-4zqf.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-684       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-687       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 68732     [&#39;vsbg-t3e9.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-725       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-726       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 73786     [&#39;3wtr-89us.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-743       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-748       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-753       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 75678     [&#39;j55h-3upk.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 76281     [&#39;hv9n-xgy4.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-764       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-769       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-772       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-773       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 77345     [&#39;8qjh-sbs9.rdf&#39;]                                                                                                                                                                                                                                                                                           []
 77951     [&#39;rj4h-8pn4.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-780       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-784       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-786       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-794       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-807       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 80848     [&#39;r6sk-x3g9.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-811       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-8112      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-818       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-830       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-831       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-837       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-849       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-858       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-859       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-861       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-880       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 88131     [&#39;v9dk-xgzr.rdf&#39;]                                                                                                                                                                                                                                                                                           []
-888       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-894       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-895       [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-9298      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-9461      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
-9692      [&#39;rows.rdf&#39;]                                                                                                                                                                                                                                                                                                []
 </pre>
 </div>
 </div>
@@ -15995,7 +16455,7 @@ NON RDF unusable files: 187
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Paths of RDF files that needs to be checked</p>
+<p>Paths of RDF files that needs to be checked (some of them contains errors, such as spaces in the IRI (very common))</p>
 
 </div>
 </div>
@@ -16030,7 +16490,77 @@ NON RDF unusable files: 187
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;datasets/10144/rows.rdf&#39;,
+<pre>[&#39;datasets/2/ppg-sf-dump.rdf&#39;,
+ &#39;datasets/6/ppg-sf-dump.rdf&#39;,
+ &#39;datasets/561/covidcountystatistics.ttl&#39;,
+ &#39;datasets/561/covidstatisticsprofile.ttl&#39;,
+ &#39;datasets/569/rows.rdf&#39;,
+ &#39;datasets/573/rows.rdf&#39;,
+ &#39;datasets/574/rows.rdf&#39;,
+ &#39;datasets/576/rows.rdf&#39;,
+ &#39;datasets/588/rows.rdf&#39;,
+ &#39;datasets/599/rows.rdf&#39;,
+ &#39;datasets/615/rows.rdf&#39;,
+ &#39;datasets/618/rows.rdf&#39;,
+ &#39;datasets/622/rows.rdf&#39;,
+ &#39;datasets/623/rows.rdf&#39;,
+ &#39;datasets/633/rows.rdf&#39;,
+ &#39;datasets/635/rows.rdf&#39;,
+ &#39;datasets/636/rows.rdf&#39;,
+ &#39;datasets/644/rows.rdf&#39;,
+ &#39;datasets/659/rows.rdf&#39;,
+ &#39;datasets/684/rows.rdf&#39;,
+ &#39;datasets/687/rows.rdf&#39;,
+ &#39;datasets/725/rows.rdf&#39;,
+ &#39;datasets/726/rows.rdf&#39;,
+ &#39;datasets/743/rows.rdf&#39;,
+ &#39;datasets/748/rows.rdf&#39;,
+ &#39;datasets/753/rows.rdf&#39;,
+ &#39;datasets/764/rows.rdf&#39;,
+ &#39;datasets/769/rows.rdf&#39;,
+ &#39;datasets/772/rows.rdf&#39;,
+ &#39;datasets/773/rows.rdf&#39;,
+ &#39;datasets/780/rows.rdf&#39;,
+ &#39;datasets/784/rows.rdf&#39;,
+ &#39;datasets/786/rows.rdf&#39;,
+ &#39;datasets/794/rows.rdf&#39;,
+ &#39;datasets/807/rows.rdf&#39;,
+ &#39;datasets/811/rows.rdf&#39;,
+ &#39;datasets/818/rows.rdf&#39;,
+ &#39;datasets/830/rows.rdf&#39;,
+ &#39;datasets/831/rows.rdf&#39;,
+ &#39;datasets/837/rows.rdf&#39;,
+ &#39;datasets/849/rows.rdf&#39;,
+ &#39;datasets/858/rows.rdf&#39;,
+ &#39;datasets/859/rows.rdf&#39;,
+ &#39;datasets/861/rows.rdf&#39;,
+ &#39;datasets/880/rows.rdf&#39;,
+ &#39;datasets/888/rows.rdf&#39;,
+ &#39;datasets/894/rows.rdf&#39;,
+ &#39;datasets/895/rows.rdf&#39;,
+ &#39;datasets/2210/rows.rdf&#39;,
+ &#39;datasets/2556/rows.rdf&#39;,
+ &#39;datasets/4354/rows.rdf&#39;,
+ &#39;datasets/5364/rows.rdf&#39;,
+ &#39;datasets/5451/rows.rdf&#39;,
+ &#39;datasets/5662/rows.rdf&#39;,
+ &#39;datasets/5663/rows.rdf&#39;,
+ &#39;datasets/5665/rows.rdf&#39;,
+ &#39;datasets/5719/rows.rdf&#39;,
+ &#39;datasets/5720/rows.rdf&#39;,
+ &#39;datasets/5721/rows.rdf&#39;,
+ &#39;datasets/5739/rows.rdf&#39;,
+ &#39;datasets/5740/rows.rdf&#39;,
+ &#39;datasets/5741/rows.rdf&#39;,
+ &#39;datasets/5742/rows.rdf&#39;,
+ &#39;datasets/5743/rows.rdf&#39;,
+ &#39;datasets/5744/rows.rdf&#39;,
+ &#39;datasets/6046/rows.rdf&#39;,
+ &#39;datasets/8112/rows.rdf&#39;,
+ &#39;datasets/9298/rows.rdf&#39;,
+ &#39;datasets/9461/rows.rdf&#39;,
+ &#39;datasets/9692/rows.rdf&#39;,
+ &#39;datasets/10144/rows.rdf&#39;,
  &#39;datasets/10145/rows.rdf&#39;,
  &#39;datasets/10235/rows.rdf&#39;,
  &#39;datasets/10251/rows.rdf&#39;,
@@ -16296,7 +16826,6 @@ NON RDF unusable files: 187
  &#39;datasets/17913/rows.rdf&#39;,
  &#39;datasets/17925/rows.rdf&#39;,
  &#39;datasets/19019/rows.rdf&#39;,
- &#39;datasets/2/ppg-sf-dump.rdf&#39;,
  &#39;datasets/21023/2016-allievi-partecipanti.nt&#39;,
  &#39;datasets/21522/rdfdatamodel-immobile.rdf&#39;,
  &#39;datasets/21523/rdfschema.rdf&#39;,
@@ -16310,9 +16839,7 @@ NON RDF unusable files: 187
  &#39;datasets/21682/mf-portfif-2-th-12.rdf&#39;,
  &#39;datasets/21683/mf-portfif-1-th-12.rdf&#39;,
  &#39;datasets/21685/mf-regis-th-12.rdf&#39;,
- &#39;datasets/2210/rows.rdf&#39;,
  &#39;datasets/24154/tbgy-vw5z.rdf&#39;,
- &#39;datasets/2556/rows.rdf&#39;,
  &#39;datasets/29412/kc9i-wq85.rdf&#39;,
  &#39;datasets/29436/cnfp-tsxc.rdf&#39;,
  &#39;datasets/29783/qizy-d2wf.rdf&#39;,
@@ -16398,7 +16925,6 @@ NON RDF unusable files: 187
  &#39;datasets/41706/gz3r-fk2y.rdf&#39;,
  &#39;datasets/41707/6sdr-8fgz.rdf&#39;,
  &#39;datasets/43154/3e5s-3q2t.rdf&#39;,
- &#39;datasets/4354/rows.rdf&#39;,
  &#39;datasets/44016/6x9d-idz4.rdf&#39;,
  &#39;datasets/44051/cf7e-dhrb.rdf&#39;,
  &#39;datasets/44088/tzak-8e66.rdf&#39;,
@@ -16429,8 +16955,6 @@ NON RDF unusable files: 187
  &#39;datasets/52690/ncz3-ptfk.rdf&#39;,
  &#39;datasets/52743/nwdp-pxq4.rdf&#39;,
  &#39;datasets/52856/yay2-kfah.rdf&#39;,
- &#39;datasets/5364/rows.rdf&#39;,
- &#39;datasets/5451/rows.rdf&#39;,
  &#39;datasets/54958/hqa9-fu65.rdf&#39;,
  &#39;datasets/54959/26n4-t3i2.rdf&#39;,
  &#39;datasets/54960/bxas-tthn.rdf&#39;,
@@ -16446,35 +16970,6 @@ NON RDF unusable files: 187
  &#39;datasets/54970/aa8h-5r4x.rdf&#39;,
  &#39;datasets/54971/bn76-emh9.rdf&#39;,
  &#39;datasets/54972/w5r2-3t5j.rdf&#39;,
- &#39;datasets/561/covidcountystatistics.ttl&#39;,
- &#39;datasets/561/covidstatisticsprofile.ttl&#39;,
- &#39;datasets/5662/rows.rdf&#39;,
- &#39;datasets/5663/rows.rdf&#39;,
- &#39;datasets/5665/rows.rdf&#39;,
- &#39;datasets/569/rows.rdf&#39;,
- &#39;datasets/5719/rows.rdf&#39;,
- &#39;datasets/5720/rows.rdf&#39;,
- &#39;datasets/5721/rows.rdf&#39;,
- &#39;datasets/573/rows.rdf&#39;,
- &#39;datasets/5739/rows.rdf&#39;,
- &#39;datasets/574/rows.rdf&#39;,
- &#39;datasets/5740/rows.rdf&#39;,
- &#39;datasets/5741/rows.rdf&#39;,
- &#39;datasets/5742/rows.rdf&#39;,
- &#39;datasets/5743/rows.rdf&#39;,
- &#39;datasets/5744/rows.rdf&#39;,
- &#39;datasets/576/rows.rdf&#39;,
- &#39;datasets/588/rows.rdf&#39;,
- &#39;datasets/599/rows.rdf&#39;,
- &#39;datasets/6/ppg-sf-dump.rdf&#39;,
- &#39;datasets/6046/rows.rdf&#39;,
- &#39;datasets/615/rows.rdf&#39;,
- &#39;datasets/618/rows.rdf&#39;,
- &#39;datasets/622/rows.rdf&#39;,
- &#39;datasets/623/rows.rdf&#39;,
- &#39;datasets/633/rows.rdf&#39;,
- &#39;datasets/635/rows.rdf&#39;,
- &#39;datasets/636/rows.rdf&#39;,
  &#39;datasets/63637/mdmf-aswt.rdf&#39;,
  &#39;datasets/63805/giq8-gspk.rdf&#39;,
  &#39;datasets/63944/c34u-vnew.rdf&#39;,
@@ -16493,55 +16988,20 @@ NON RDF unusable files: 187
  &#39;datasets/64194/5t3u-serj.rdf&#39;,
  &#39;datasets/64200/b3bu-fswq.rdf&#39;,
  &#39;datasets/64225/bhrt-29rb.rdf&#39;,
- &#39;datasets/644/rows.rdf&#39;,
  &#39;datasets/65708/myju-bx58.rdf&#39;,
- &#39;datasets/659/rows.rdf&#39;,
  &#39;datasets/65952/snxs-8atp.rdf&#39;,
  &#39;datasets/66005/2ynm-erms.rdf&#39;,
  &#39;datasets/66165/khtu-ck6k.rdf&#39;,
  &#39;datasets/66467/tb7s-6pqn.rdf&#39;,
  &#39;datasets/68298/2qji-4zqf.rdf&#39;,
- &#39;datasets/684/rows.rdf&#39;,
- &#39;datasets/687/rows.rdf&#39;,
  &#39;datasets/68732/vsbg-t3e9.rdf&#39;,
- &#39;datasets/725/rows.rdf&#39;,
- &#39;datasets/726/rows.rdf&#39;,
  &#39;datasets/73786/3wtr-89us.rdf&#39;,
- &#39;datasets/743/rows.rdf&#39;,
- &#39;datasets/748/rows.rdf&#39;,
- &#39;datasets/753/rows.rdf&#39;,
  &#39;datasets/75678/j55h-3upk.rdf&#39;,
  &#39;datasets/76281/hv9n-xgy4.rdf&#39;,
- &#39;datasets/764/rows.rdf&#39;,
- &#39;datasets/769/rows.rdf&#39;,
- &#39;datasets/772/rows.rdf&#39;,
- &#39;datasets/773/rows.rdf&#39;,
  &#39;datasets/77345/8qjh-sbs9.rdf&#39;,
  &#39;datasets/77951/rj4h-8pn4.rdf&#39;,
- &#39;datasets/780/rows.rdf&#39;,
- &#39;datasets/784/rows.rdf&#39;,
- &#39;datasets/786/rows.rdf&#39;,
- &#39;datasets/794/rows.rdf&#39;,
- &#39;datasets/807/rows.rdf&#39;,
  &#39;datasets/80848/r6sk-x3g9.rdf&#39;,
- &#39;datasets/811/rows.rdf&#39;,
- &#39;datasets/8112/rows.rdf&#39;,
- &#39;datasets/818/rows.rdf&#39;,
- &#39;datasets/830/rows.rdf&#39;,
- &#39;datasets/831/rows.rdf&#39;,
- &#39;datasets/837/rows.rdf&#39;,
- &#39;datasets/849/rows.rdf&#39;,
- &#39;datasets/858/rows.rdf&#39;,
- &#39;datasets/859/rows.rdf&#39;,
- &#39;datasets/861/rows.rdf&#39;,
- &#39;datasets/880/rows.rdf&#39;,
- &#39;datasets/88131/v9dk-xgzr.rdf&#39;,
- &#39;datasets/888/rows.rdf&#39;,
- &#39;datasets/894/rows.rdf&#39;,
- &#39;datasets/895/rows.rdf&#39;,
- &#39;datasets/9298/rows.rdf&#39;,
- &#39;datasets/9461/rows.rdf&#39;,
- &#39;datasets/9692/rows.rdf&#39;]</pre>
+ &#39;datasets/88131/v9dk-xgzr.rdf&#39;]</pre>
 </div>
 
 </div>
@@ -16557,7 +17017,7 @@ NON RDF unusable files: 187
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Analysis-of-NOT-USED---NON-RDF-files">Analysis of NOT USED - NON RDF files<a class="anchor-link" href="#Analysis-of-NOT-USED---NON-RDF-files">&#182;</a></h2>
+<h2 id="Analysis-of-unused---NON-RDF-files">Analysis of unused - NON RDF files<a class="anchor-link" href="#Analysis-of-unused---NON-RDF-files">&#182;</a></h2>
 </div>
 </div>
 </div>
