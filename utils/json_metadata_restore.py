@@ -1,14 +1,10 @@
 """
-For each dataset folder, deletes every generated metadata file (example: metadata-cc.json)
-and restores `metadata.json` deleting what has been appended by `extract.py`
+For each dataset folder restores `metadata.json` deleting what has been appended by `extract.py`
 """
 
 import os
 import json
 import argparse
-
-
-FILES_TO_DELETE = ["metadata-cc.json"]
 
 
 def restore_dataset(dataset_path: str):
@@ -35,12 +31,6 @@ def restore_dataset(dataset_path: str):
         mf.seek(0)
         mf.truncate(0)
         mf.write(content)
-
-    # delete other files
-    for ftd in FILES_TO_DELETE:
-        fp = f"{dataset_path}/{ftd}"
-        if os.path.isfile(fp):
-            os.remove(fp)
 
 
 if __name__ == "__main__":

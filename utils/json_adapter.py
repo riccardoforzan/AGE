@@ -49,14 +49,46 @@ def create_camel_case_json_file(dataset_path: str):
         ccj.write(content)
 
 
+def remove_generated_json_file(dataset_path: str):
+    camel_case_json = f"{dataset_path}/metadata-jf.json"
+    if os.path.isfile(camel_case_json):
+        os.remove(camel_case_json)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("folder", type=str, help="Folder that contains the datasets")
+
+    parser.add_argument(
+        "--generate",
+        action=argparse.BooleanOptionalAction,
+        help="Generates the file `metadata-cc.json` for each dataset",
+    )
+
+    parser.add_argument(
+        "--remove-generated",
+        action=argparse.BooleanOptionalAction,
+        help="Removes the file `metadata-cc.json` from each dataset folder",
+    )
+
     args = parser.parse_args()
+
+    generate = args.generate == True
+    remove_generated = args.remove_generated == True
 
     datasets = os.listdir(args.folder)
 
-    for d in datasets:
-        print(f"Processing dataset {d}")
-        path = f"{args.folder}/{d}"
-        create_camel_case_json_file(dataset_path=path)
+    if (not generate and not remove_generated) or (generate and remove_generated):
+        print("Select exactly ONE option, use -h for help")
+
+    if generate:
+        for d in datasets:
+            print(f"Processing dataset {d}")
+            path = f"{args.folder}/{d}"
+            create_camel_case_json_file(dataset_path=path)
+
+    if remove_generated:
+        for d in datasets:
+            print(f"Processing dataset {d}")
+            path = f"{args.folder}/{d}"
+            remove_generated_json_file(path)
