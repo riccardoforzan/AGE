@@ -13,6 +13,9 @@ def create_camel_case_json_file(dataset_path: str):
     metadata_file = f"{dataset_path}/metadata.json"
     camel_case_json = f"{dataset_path}/metadata-cc.json"
 
+    if os.path.isfile(camel_case_json):
+        raise Exception(f"{camel_case_json} already exists")
+
     with open(metadata_file, "r") as og, open(camel_case_json, "w+") as ccj:
         data = json.load(og, strict=False)
 
