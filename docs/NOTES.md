@@ -45,7 +45,7 @@ so in the `metadata.json` all the conditions are satisfied:
 ### RDFLib and RAM usage
 
 In order to tackle the memory usage of RDFLib I removed from my collection all the files which were more than 100MB in size.
-Assuming `datasets` is the folder from the current working directory in which datasets are stored, by running you can find all the datasets which size is more then 100MB
+Assuming `datasets` is the folder from the current working directory in which datasets are stored, by running you can find all the datasets which size is more than 100MB
 
 ```sh
 find datasets -type f -size +100M -exec ls -alh {} \; | sort -hr -k5
