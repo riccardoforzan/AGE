@@ -1,4 +1,4 @@
-datasets
+datasets/
 ├── 1
 │   ├── curso-sf-dump.rdf
 │   ├── curso-sf-dump.ttl
@@ -2318,8 +2318,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 11003
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 11004
 │   └── metadata.json
 ├── 11005
@@ -3417,8 +3416,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 11520
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 11526
 │   └── metadata.json
 ├── 11528
@@ -5735,7 +5733,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 12635
-│   ├── foaf.rdf
 │   └── metadata.json
 ├── 12636
 │   ├── gallery.rdf
@@ -5799,7 +5796,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 12704
-│   ├── makxdekkers.rdf
 │   └── metadata.json
 ├── 12706
 │   └── metadata.json
@@ -6012,10 +6008,8 @@ datasets
 ├── 12941
 │   └── metadata.json
 ├── 12942
-│   ├── foaf.rdf
 │   └── metadata.json
 ├── 12949
-│   ├── foaf.rdf
 │   └── metadata.json
 ├── 1295
 │   ├── metadata.json
@@ -6076,7 +6070,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13004
-│   ├── foaf.rdf
 │   └── metadata.json
 ├── 1301
 │   ├── metadata.json
@@ -6221,7 +6214,6 @@ datasets
 │   ├── foaf.rdf
 │   └── metadata.json
 ├── 13148
-│   ├── foaf.rdf
 │   └── metadata.json
 ├── 13149
 │   ├── card.rdf
@@ -6290,14 +6282,14 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13252
-│   ├── affymetrix-185061-at
+│   ├── affymetrix-185061-at.ttl
 │   ├── bio2rdf-affymetrix-sio-mapping.owl
 │   └── metadata.json
 ├── 13254
 │   ├── databnf-all-rdf-xml.tar.gz-user-databnf-password-databnf
 │   ├── metadata.json
 │   ├── rdf.nt
-│   └── rdf.xml
+│   └── rdf.rdf
 ├── 13255
 │   └── metadata.json
 ├── 1326
@@ -6310,7 +6302,7 @@ datasets
 │   ├── apache2.rdf
 │   └── metadata.json
 ├── 13263
-│   ├── govwild-rdf-2012-01-30.zip
+│   ├── Govwild_rdf.n3
 │   ├── gwontology.rdf
 │   └── metadata.json
 ├── 13267
@@ -6324,7 +6316,7 @@ datasets
 │   └── metadata.json
 ├── 13279
 │   ├── bio2rdf-hgnc-sio-mapping.owl
-│   ├── hgnc-7
+│   ├── hgnc-7.ttl
 │   └── metadata.json
 ├── 1328
 │   ├── metadata.json
@@ -6332,17 +6324,17 @@ datasets
 ├── 13283
 │   ├── f522444a-2dd9-400e-be59-47213ef38cb9.rdf
 │   ├── metadata.json
-│   ├── txn-distribution.ttl.gz
-│   ├── txn-images.ttl.gz
-│   ├── txn-misc.ttl.gz
-│   ├── txn-ocs.ttl.gz
+│   ├── txn-distribution.ttl
+│   ├── txn-images.ttl
+│   ├── txn-misc.ttl
+│   ├── txn-ocs.ttl
 │   └── txn.owl
 ├── 13284
 │   ├── cancer-causes.rdf
-│   ├── deck
+│   ├── deck.rdf
 │   └── metadata.json
 ├── 13288
-│   ├── 54b30
+│   ├── 54b30.rdf
 │   ├── metadata.json
 │   └── msc2010-nomath.rdf
 ├── 13289
@@ -6352,8 +6344,6 @@ datasets
 │   └── rows.rdf
 ├── 13290
 │   ├── 006893251.json
-│   ├── 006893251.rdf
-│   ├── 006893251.ttl
 │   └── metadata.json
 ├── 13291
 │   ├── active-population-economic-sector-nace09.rdf
@@ -6362,13 +6352,12 @@ datasets
 │   ├── metadata.json
 │   ├── population-section
 │   ├── society-section
-│   ├── territory-environment-section.nt
-│   └── vocab
+│   └── vocab.rdf
 ├── 13293
 │   └── metadata.json
 ├── 13299
 │   ├── bio2rdf-homologene-sio-mapping.owl
-│   ├── homologene-1000
+│   ├── homologene-1000.ttl
 │   └── metadata.json
 ├── 1330
 │   ├── metadata.json
@@ -6392,8 +6381,8 @@ datasets
 ├── 13334
 │   ├── metadata.json
 │   ├── s2377506.n3
-│   ├── s2377506.ttl
-│   └── s2377506.xml
+│   ├── s2377506.rdf
+│   └── s2377506.ttl
 ├── 13339
 │   ├── ed-1.rdf
 │   ├── metadata.json
@@ -6405,7 +6394,7 @@ datasets
 │   └── rows.rdf
 ├── 13347
 │   ├── geospecies.owl
-│   ├── geospecies.rdf.gz
+│   ├── geospecies.rdf
 │   └── metadata.json
 ├── 13348
 │   ├── metadata.json
@@ -6428,23 +6417,21 @@ datasets
 ├── 13357
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
-│   ├── cube
+│   ├── core.rdf
+│   ├── cube.ttl
 │   ├── data-view
 │   ├── dcat
-│   ├── doap
-│   ├── event.owl
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
-│   ├── pml-justification.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
 │   ├── tvcg.2010.181
 │   ├── void
-│   ├── vsr
-│   └── wgs84-pos
+│   ├── vsr.rdf
+│   └── wgs84-pos.rdf
 ├── 1336
 │   ├── metadata.json
 │   └── rows.rdf
@@ -6453,11 +6440,11 @@ datasets
 │   └── metadata.json
 ├── 13368
 │   ├── about.rdf
-│   ├── all-geonames-rdf.zip
+│   ├── all-geonames.rdf
 │   ├── metadata.json
 │   └── ontology-v2.rdf
 ├── 13369
-│   ├── dbpedia-3.6.owl.bz2
+│   ├── dbpedia-3.6.owl
 │   ├── linux
 │   ├── linux.n3
 │   ├── linux.rdf
@@ -6467,8 +6454,26 @@ datasets
 │   └── rows.rdf
 ├── 13378
 │   ├── metadata.json
-│   ├── wn20full.zip
 │   ├── wnfull.rdf
+│   ├── wordnet-antonym.rdf
+│   ├── wordnet-attribute.rdf
+│   ├── wordnet-causes.rdf
+│   ├── wordnet-classifiedby.rdf
+│   ├── wordnet-derivationallyrelated.rdf
+│   ├── wordnet-entailment.rdf
+│   ├── wordnet-frame.rdf
+│   ├── wordnet-glossary.rdf
+│   ├── wordnet-hyponym.rdf
+│   ├── wordnet-membermeronym.rdf
+│   ├── wordnet-participleof.rdf
+│   ├── wordnet-partmeronym.rdf
+│   ├── wordnet-pertainsto.rdf
+│   ├── wordnet-sameverbgroupas.rdf
+│   ├── wordnet-seealso.rdf
+│   ├── wordnet-similarity.rdf
+│   ├── wordnet-substancemeronym.rdf
+│   ├── wordnet-synset.rdf
+│   ├── wordnet-wordsensesandwords.rdf
 │   └── wordsense-entity-noun-1.nt
 ├── 13379
 │   ├── metadata.json
@@ -6481,7 +6486,7 @@ datasets
 │   ├── 4bf87ee3-8f52-94bb-2398-44e7af6980e4.rdf
 │   └── metadata.json
 ├── 13388
-│   ├── dbpedia-3.6.owl.bz2
+│   ├── dbpedia-3.6.owl
 │   ├── metadata.json
 │   ├── paris
 │   ├── paris.n3
@@ -6502,7 +6507,6 @@ datasets
 │   └── rows.rdf
 ├── 13400
 │   ├── dump.rdf
-│   ├── laser-printer.ttl
 │   └── metadata.json
 ├── 13409
 │   └── metadata.json
@@ -6512,19 +6516,18 @@ datasets
 ├── 13412
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── nif-core
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
 │   ├── sparql-service-description
 │   ├── void
-│   └── vsr
+│   └── vsr.rdf
 ├── 1342
 │   ├── metadata.json
 │   └── rows.rdf
@@ -6564,7 +6567,7 @@ datasets
 │   ├── all-languages.tar
 │   ├── berlin.n3
 │   ├── berlin.rdf
-│   ├── dbpedia-3.5.1.owl.bz2
+│   ├── dbpedia-3.5.1.owl
 │   └── metadata.json
 ├── 13469
 │   ├── bio2rdf-interpro-sio-mapping.owl
@@ -6576,7 +6579,7 @@ datasets
 ├── 13471
 │   ├── bio2rdf-omim-sio-mapping.owl
 │   ├── metadata.json
-│   └── omim-603903
+│   └── omim-603903.ttl
 ├── 13474
 │   ├── foaf.rdf
 │   └── metadata.json
@@ -6586,7 +6589,7 @@ datasets
 ├── 13482
 │   ├── bio2rdf-sgd-sio-mapping.owl
 │   ├── metadata.json
-│   └── sgd-s000006169
+│   └── sgd-s000006169.ttl
 ├── 1349
 │   ├── metadata.json
 │   └── rows.rdf
@@ -6598,7 +6601,6 @@ datasets
 │   └── metadata.json
 ├── 13506
 │   ├── bio2rdf-biomodels-sio-mapping.owl
-│   ├── biomodels-biomd0000000048
 │   └── metadata.json
 ├── 1351
 │   ├── metadata.json
@@ -6608,7 +6610,6 @@ datasets
 │   └── rows.rdf
 ├── 13522
 │   ├── bio2rdf-irefindex-sio-mapping.owl
-│   ├── irefindex.irogid-1069566
 │   └── metadata.json
 ├── 1353
 │   ├── metadata.json
@@ -6653,7 +6654,7 @@ datasets
 │   ├── lemonentriespointingtobigfile.nt
 │   ├── lemonentriespointingtosinglefile.nt
 │   ├── metadata.json
-│   ├── psclemon
+│   ├── psclemon.rdf
 │   ├── psclemon.ttl
 │   ├── simpleentries.nt
 │   ├── simpleentries.ttl
@@ -6665,18 +6666,8 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13581
-│   ├── assembleacostituente.rdf
-│   ├── caster-complessi.rdf
-│   ├── caster-soggetticonservatori.rdf
-│   ├── caster-soggettiproduttori.rdf
 │   ├── cd1700000001
-│   ├── commissioniparlamentariinchiesta.rdf
-│   ├── entimaic.rdf
-│   ├── luoghiacs.rdf
 │   ├── metadata.json
-│   ├── personemaic.rdf
-│   ├── titolariomaic.rdf
-│   ├── uodmaic.rdf
 │   └── void.ttl
 ├── 13582
 │   ├── metadata.json
@@ -6689,16 +6680,10 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13590
-│   ├── asjp.owl
-│   ├── d13-468.rdf
 │   ├── families.rdf.zip
-│   ├── fromance.rdf
-│   ├── l99.rdf
 │   ├── languoids.rdf.zip
 │   ├── metadata.json
-│   ├── r1234.rdf
 │   ├── renderings.ttl.zip
-│   ├── s40.rdf
 │   └── senses.rdf.zip
 ├── 13594
 │   ├── aanmonstering-del-gem-1890-35
@@ -6709,7 +6694,7 @@ datasets
 │   └── rows.rdf
 ├── 13600
 │   ├── bio2rdf-drugbank-sio-mapping.owl
-│   ├── drugbank-db00001
+│   ├── drugbank-db00001.ttl
 │   └── metadata.json
 ├── 1361
 │   ├── metadata.json
@@ -6770,7 +6755,7 @@ datasets
 │   ├── continents.rdf
 │   ├── countries.rdf
 │   ├── currencies.rdf
-│   ├── gb
+│   ├── gb.ttl
 │   └── metadata.json
 ├── 13719
 │   ├── metadata.json
@@ -6779,7 +6764,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13723
-│   ├── 00100204.ttl
 │   └── metadata.json
 ├── 1373
 │   ├── metadata.json
@@ -6793,12 +6777,12 @@ datasets
 ├── 13759
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
@@ -6820,12 +6804,12 @@ datasets
 ├── 13796
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
@@ -6846,7 +6830,7 @@ datasets
 │   ├── e01000001.nt
 │   ├── e01000001.rdf
 │   ├── e01000001.ttl
-│   ├── lsoa.ttl.zip
+│   ├── lsoa.ttl
 │   └── metadata.json
 ├── 1383
 │   ├── metadata.json
@@ -6856,8 +6840,7 @@ datasets
 │   └── rows.rdf
 ├── 13845
 │   ├── metadata.json
-│   ├── ntnames.owl
-│   └── ntn-individuals.owl
+│   └── ntnames.owl
 ├── 13847
 │   ├── kunnat-o-http-3a-2f-2fwww.ttl
 │   └── metadata.json
@@ -6900,7 +6883,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13950
-│   ├── cell2159549-5275-262-1.rdf
 │   └── metadata.json
 ├── 1396
 │   ├── metadata.json
@@ -6922,10 +6904,25 @@ datasets
 │   ├── metadata.json
 │   └── taxrefld-static-dcat.ttl
 ├── 13997
-│   ├── 196565-person
-│   ├── ahess-0395-2649
-│   ├── bulmo-0007-473x-2000-num-158-2-2373
+│   ├── 196565-person.rdf
+│   ├── ahess-0395-2649.rdf
+│   ├── bulmo-0007-473x-2000-num-158-2-2373.rdf
+│   ├── define_UMS_Persee.rdf
+│   ├── license.txt
 │   ├── metadata.json
+│   ├── PERSEE_align_All_2021-09-24.rdf
+│   ├── PERSEE_align_Bnf_2021-09-24.rdf
+│   ├── PERSEE_align_DBpedia_2021-09-24.rdf
+│   ├── PERSEE_align_DBpediaFR_2021-09-24.rdf
+│   ├── PERSEE_align_idHAL_2021-09-24.rdf
+│   ├── PERSEE_align_Idref_2021-09-24.rdf
+│   ├── PERSEE_align_Isni_2021-09-24.rdf
+│   ├── PERSEE_align_ORCID_2021-09-24.rdf
+│   ├── PERSEE_align_RePEc_2021-09-24.rdf
+│   ├── PERSEE_align_viaf_2021-09-24.rdf
+│   ├── PERSEE_align_wikidata_2021-09-24.rdf
+│   ├── PERSEE_align_wikipedia_2021-09-24.rdf
+│   ├── PERSEE_align_wikipediaFR_2021-09-24.rdf
 │   ├── persee-ontology.owl
 │   └── persee-person-align-rdf.tar.gz
 ├── 1400
@@ -6938,7 +6935,6 @@ datasets
 │   ├── arpenteur.owl
 │   └── metadata.json
 ├── 14013
-│   ├── eventkg-r2.ttl
 │   ├── eventskg-40.rdf
 │   └── metadata.json
 ├── 14018
@@ -6971,7 +6967,7 @@ datasets
 ├── 14054
 │   ├── metadata.json
 │   ├── rdf.nt
-│   └── rdf.xml
+│   └── rdf.rdf
 ├── 1406
 │   ├── metadata.json
 │   └── rows.rdf
@@ -6979,11 +6975,11 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14079
-│   ├── eat.nt.gz
+│   ├── eat.nt
 │   ├── mapping-eat-dbpedia.rdf
 │   ├── metadata.json
 │   ├── vocab.ttl
-│   └── wheat
+│   └── wheat.rdf
 ├── 1408
 │   ├── metadata.json
 │   └── rows.rdf
@@ -7058,7 +7054,6 @@ datasets
 │   ├── cfr-2015-title12-vol3-part225.ttl
 │   ├── cfr-fdsys-schema.ttl
 │   ├── code-federal-regulations.ttl
-│   ├── fro-banking.ttl
 │   ├── fro-cfr-banking.ttl
 │   ├── fro-cfr-title-12-part-217.ttl
 │   ├── fro-cfr-title-12-part-225.ttl
@@ -7066,7 +7061,6 @@ datasets
 │   ├── fro-cfr-title-17-part-275.ttl
 │   ├── fro-usc-title-12-chapter-17.ttl
 │   ├── fro-usc-title-12-chapter-53.ttl
-│   ├── fro-usc-title-15-chapter-2d-s1-5.ttl
 │   ├── fro-usc-title-15-chapter-2d.ttl
 │   ├── legalreference.ttl
 │   ├── metadata.json
@@ -7112,8 +7106,26 @@ datasets
 │   └── rows.rdf
 ├── 14252
 │   ├── metadata.json
-│   ├── wn20full.zip
 │   ├── wnfull.rdf
+│   ├── wordnet-antonym.rdf
+│   ├── wordnet-attribute.rdf
+│   ├── wordnet-causes.rdf
+│   ├── wordnet-classifiedby.rdf
+│   ├── wordnet-derivationallyrelated.rdf
+│   ├── wordnet-entailment.rdf
+│   ├── wordnet-frame.rdf
+│   ├── wordnet-glossary.rdf
+│   ├── wordnet-hyponym.rdf
+│   ├── wordnet-membermeronym.rdf
+│   ├── wordnet-participleof.rdf
+│   ├── wordnet-partmeronym.rdf
+│   ├── wordnet-pertainsto.rdf
+│   ├── wordnet-sameverbgroupas.rdf
+│   ├── wordnet-seealso.rdf
+│   ├── wordnet-similarity.rdf
+│   ├── wordnet-substancemeronym.rdf
+│   ├── wordnet-synset.rdf
+│   ├── wordnet-wordsensesandwords.rdf
 │   └── wordsense-entity-noun-1.nt
 ├── 1426
 │   ├── metadata.json
@@ -7124,10 +7136,10 @@ datasets
 ├── 14277
 │   ├── f522444a-2dd9-400e-be59-47213ef38cb9.rdf
 │   ├── metadata.json
-│   ├── txn-distribution.ttl.gz
-│   ├── txn-images.ttl.gz
-│   ├── txn-misc.ttl.gz
-│   ├── txn-ocs.ttl.gz
+│   ├── txn-distribution.ttl
+│   ├── txn-images.ttl
+│   ├── txn-misc.ttl
+│   ├── txn-ocs.ttl
 │   └── txn.owl
 ├── 1428
 │   ├── metadata.json
@@ -7165,13 +7177,13 @@ datasets
 │   └── rows.rdf
 ├── 14324
 │   ├── geospecies.owl
-│   ├── geospecies.rdf.gz
+│   ├── geospecies.rdf
 │   └── metadata.json
 ├── 1433
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14336
-│   ├── dbpedia-3.6.owl.bz2
+│   ├── dbpedia-3.6.owl
 │   ├── linux
 │   ├── linux.n3
 │   ├── linux.rdf
@@ -7181,7 +7193,7 @@ datasets
 │   └── rows.rdf
 ├── 14344
 │   ├── about.rdf
-│   ├── all-geonames-rdf.zip
+│   ├── all-geonames.rdf
 │   ├── metadata.json
 │   └── ontology-v2.rdf
 ├── 1435
@@ -7199,7 +7211,7 @@ datasets
 ├── 14362
 │   └── metadata.json
 ├── 14364
-│   ├── govwild-rdf-2012-01-30.zip
+│   ├── Govwild_rdf.n3
 │   ├── gwontology.rdf
 │   └── metadata.json
 ├── 1437
@@ -7210,14 +7222,13 @@ datasets
 │   └── rows.rdf
 ├── 14382
 │   ├── dump.rdf
-│   ├── laser-printer.ttl
 │   └── metadata.json
 ├── 14383
 │   ├── data.rdf
 │   └── metadata.json
 ├── 14387
 │   ├── bio2rdf-hgnc-sio-mapping.owl
-│   ├── hgnc-7
+│   ├── hgnc-7.ttl
 │   └── metadata.json
 ├── 1439
 │   ├── metadata.json
@@ -7225,7 +7236,7 @@ datasets
 ├── 14396
 │   ├── bio2rdf-omim-sio-mapping.owl
 │   ├── metadata.json
-│   └── omim-603903
+│   └── omim-603903.ttl
 ├── 14399
 │   ├── gemet-backbone.rdf
 │   └── metadata.json
@@ -7239,16 +7250,14 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14411
-│   ├── affymetrix-185061-at
+│   ├── affymetrix-185061-at.ttl
 │   ├── bio2rdf-affymetrix-sio-mapping.owl
 │   └── metadata.json
 ├── 14417
 │   ├── cancer-causes.rdf
-│   ├── deck
+│   ├── deck.rdf
 │   └── metadata.json
 ├── 14418
-│   ├── 173390.rdf
-│   ├── gtaa
 │   └── metadata.json
 ├── 1442
 │   ├── metadata.json
@@ -7261,7 +7270,7 @@ datasets
 │   ├── continents.rdf
 │   ├── countries.rdf
 │   ├── currencies.rdf
-│   ├── gb
+│   ├── gb.ttl
 │   └── metadata.json
 ├── 14434
 │   ├── metadata.json
@@ -7284,7 +7293,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14469
-│   ├── 00100204.ttl
 │   └── metadata.json
 ├── 1447
 │   ├── metadata.json
@@ -7296,10 +7304,10 @@ datasets
 ├── 14472
 │   ├── bio2rdf-ndc-sio-mapping.owl
 │   ├── metadata.json
-│   └── ndc-49288-0001-272c9910-2160-4d41-afbd-faab3055ba1d
+│   └── ndc-49288-0001-272c9910-2160-4d41-afbd-faab3055ba1d.ttl
 ├── 14473
 │   ├── bio2rdf-mesh-sio-mapping.owl
-│   ├── mesh-d018377
+│   ├── mesh-d018377.ttl
 │   └── metadata.json
 ├── 1448
 │   ├── metadata.json
@@ -7318,18 +7326,8 @@ datasets
 │   ├── p305757
 │   └── void.ttl
 ├── 14493
-│   ├── assembleacostituente.rdf
-│   ├── caster-complessi.rdf
-│   ├── caster-soggetticonservatori.rdf
-│   ├── caster-soggettiproduttori.rdf
 │   ├── cd1700000001
-│   ├── commissioniparlamentariinchiesta.rdf
-│   ├── entimaic.rdf
-│   ├── luoghiacs.rdf
 │   ├── metadata.json
-│   ├── personemaic.rdf
-│   ├── titolariomaic.rdf
-│   ├── uodmaic.rdf
 │   └── void.ttl
 ├── 1450
 │   ├── metadata.json
@@ -7346,18 +7344,17 @@ datasets
 │   └── rows.rdf
 ├── 14517
 │   ├── bio2rdf-irefindex-sio-mapping.owl
-│   ├── irefindex.irogid-1069566
 │   └── metadata.json
 ├── 14519
 │   ├── bio2rdf-goa-sio-mapping.owl
-│   ├── go-0006915
+│   ├── go-0006915.ttl
 │   └── metadata.json
 ├── 1452
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14520
 │   ├── bio2rdf-drugbank-sio-mapping.owl
-│   ├── drugbank-db00001
+│   ├── drugbank-db00001.ttl
 │   └── metadata.json
 ├── 1453
 │   ├── metadata.json
@@ -7387,7 +7384,7 @@ datasets
 ├── 14558
 │   ├── bio2rdf-taxonomy-sio-mapping.owl
 │   ├── metadata.json
-│   └── taxonomy-9606
+│   └── taxonomy-9606.ttl
 ├── 1456
 │   ├── metadata.json
 │   └── rows.rdf
@@ -7401,7 +7398,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14580
-│   ├── 54b30
+│   ├── 54b30.rdf
 │   ├── metadata.json
 │   └── msc2010-nomath.rdf
 ├── 14581
@@ -7410,8 +7407,8 @@ datasets
 ├── 14583
 │   ├── metadata.json
 │   ├── s2377506.n3
-│   ├── s2377506.ttl
-│   └── s2377506.xml
+│   ├── s2377506.rdf
+│   └── s2377506.ttl
 ├── 14587
 │   ├── 4bf87ee3-8f52-94bb-2398-44e7af6980e4.html
 │   ├── 4bf87ee3-8f52-94bb-2398-44e7af6980e4.rdf
@@ -7436,23 +7433,21 @@ datasets
 ├── 14603
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
-│   ├── cube
+│   ├── core.rdf
+│   ├── cube.ttl
 │   ├── data-view
 │   ├── dcat
-│   ├── doap
-│   ├── event.owl
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
-│   ├── pml-justification.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
 │   ├── tvcg.2010.181
 │   ├── void
-│   ├── vsr
-│   └── wgs84-pos
+│   ├── vsr.rdf
+│   └── wgs84-pos.rdf
 ├── 14604
 │   ├── e199bcf2-bf94-6b87-81a0-4dacaec11f46.html
 │   ├── e199bcf2-bf94-6b87-81a0-4dacaec11f46.rdf
@@ -7476,7 +7471,6 @@ datasets
 │   └── metadata.json
 ├── 14636
 │   ├── 492dbb62-b569-f6cb-5822-545c474bc3db.html
-│   ├── 492dbb62-b569-f6cb-5822-545c474bc3db.rdf
 │   └── metadata.json
 ├── 14637
 │   ├── 7d0e4f43-405b-760e-3f62-88874c758714.html
@@ -7524,15 +7518,13 @@ datasets
 ├── 14735
 │   ├── 1
 │   ├── data.nobelprize.org
-│   ├── dump.nt
-│   ├── metadata.json
-│   └── terms.rdf
+│   └── metadata.json
 ├── 1474
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 14742
 │   ├── metadata.json
-│   └── sample-20160515.rdf.xml
+│   └── sample-20160515.rdf
 ├── 1475
 │   ├── metadata.json
 │   └── rows.rdf
@@ -7560,16 +7552,16 @@ datasets
 ├── 14801
 │   ├── 2050.rdf
 │   ├── metadata.json
-│   └── usage.nt.gz
+│   └── usage.nt
 ├── 14806
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
@@ -7632,7 +7624,7 @@ datasets
 │   ├── lemonentriespointingtobigfile.nt
 │   ├── lemonentriespointingtosinglefile.nt
 │   ├── metadata.json
-│   ├── psclemon
+│   ├── psclemon.rdf
 │   ├── psclemon.ttl
 │   ├── simpleentries.nt
 │   ├── simpleentries.ttl
@@ -7791,16 +7783,10 @@ datasets
 │   ├── isocatowl.owl
 │   └── metadata.json
 ├── 15056
-│   ├── asjp.owl
-│   ├── d13-468.rdf
 │   ├── families.rdf.zip
-│   ├── fromance.rdf
-│   ├── l99.rdf
 │   ├── languoids.rdf.zip
 │   ├── metadata.json
-│   ├── r1234.rdf
 │   ├── renderings.ttl.zip
-│   ├── s40.rdf
 │   └── senses.rdf.zip
 ├── 15059
 │   ├── 39524.rdf
@@ -7819,19 +7805,18 @@ datasets
 ├── 15082
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── nif-core
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
 │   ├── sparql-service-description
 │   ├── void
-│   └── vsr
+│   └── vsr.rdf
 ├── 1509
 │   ├── metadata.json
 │   └── rows.rdf
@@ -7862,9 +7847,8 @@ datasets
 │   └── rows.rdf
 ├── 15144
 │   ├── metadata.json
-│   ├── n3.n3
 │   ├── rdfxml.rdf
-│   ├── turtle
+│   ├── turtle.ttl
 │   ├── unescothes.rdf
 │   ├── unescothes.ttl
 │   └── void.ttl
@@ -7874,12 +7858,12 @@ datasets
 ├── 15150
 │   ├── 22-rdf-syntax-ns.nt
 │   ├── contact.nt
-│   ├── core
+│   ├── core.rdf
 │   ├── dcat
-│   ├── doap
+│   ├── doap.rdf
 │   ├── irw.owl
 │   ├── metadata.json
-│   ├── ns
+│   ├── ns.rdf
 │   ├── owl.owl
 │   ├── prov
 │   ├── rdf-schema.rdf
@@ -7936,8 +7920,7 @@ datasets
 │   └── rows.rdf
 ├── 15205
 │   ├── metadata.json
-│   ├── ntnames.owl
-│   └── ntn-individuals.owl
+│   └── ntnames.owl
 ├── 1521
 │   ├── metadata.json
 │   └── rows.rdf
@@ -7987,7 +7970,7 @@ datasets
 │   ├── e01000001.nt
 │   ├── e01000001.rdf
 │   ├── e01000001.ttl
-│   ├── lsoa.ttl.zip
+│   ├── lsoa.ttl
 │   └── metadata.json
 ├── 1529
 │   ├── metadata.json
@@ -8011,8 +7994,7 @@ datasets
 │   ├── metadata.json
 │   ├── population-section
 │   ├── society-section
-│   ├── territory-environment-section.nt
-│   └── vocab
+│   └── vocab.rdf
 ├── 1534
 │   ├── metadata.json
 │   └── rows.rdf
@@ -8048,7 +8030,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15414
-│   ├── dbpedia-3.6.owl.bz2
+│   ├── dbpedia-3.6.owl
 │   ├── metadata.json
 │   ├── paris
 │   ├── paris.n3
@@ -8379,7 +8361,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15632
-│   ├── 1920402.rdf
 │   └── metadata.json
 ├── 15633
 │   ├── applications-by-account.nt
@@ -8387,19 +8368,13 @@ datasets
 ├── 15634
 │   └── metadata.json
 ├── 15636
-│   ├── 300911-dmo-organogram-ver-2.rdf
-│   ├── apa-staffdata-mar2011.rdf
-│   ├── apa-staffdata-oct2011.rdf
-│   ├── dmo-government-staff-and-salary-data-template-march-2011version-4.rdf
-│   ├── hmt-staffdata-mar2011.rdf
-│   ├── hmt-treasury-staff-and-salary-data-template-september-2011-for-input-final-v14.rdf
 │   └── metadata.json
 ├── 1564
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15641
 │   ├── metadata.json
-│   └── moj-data.rdf.txt
+│   └── moj-data.rdf.rdf
 ├── 15642
 │   ├── cefas-september-2011.rdf
 │   └── metadata.json
@@ -8465,7 +8440,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15715
-│   ├── junior-and-senior-organogram-data-2011-03-31.rdf
 │   └── metadata.json
 ├── 15716
 │   └── metadata.json
@@ -8492,87 +8466,61 @@ datasets
 │   ├── ahvla-september-2011.rdf
 │   └── metadata.json
 ├── 15736
-│   ├── metadata.json
-│   ├── tsol-staff-data-march-2011.rdf
-│   └── tsol-staff-data-september-2011.rdf
+│   └── metadata.json
 ├── 15737
-│   ├── 300911-wndc-organogram-ver2.rdf
-│   ├── metadata.json
-│   └── wndc-senior-salary-and-organogram-march-2011v24.rdf
+│   └── metadata.json
 ├── 15739
-│   ├── hornimanstaff-and-salary-data.rdf
 │   └── metadata.json
 ├── 1574
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15743
-│   ├── metadata.json
-│   └── wales-office-organogram.rdf
+│   └── metadata.json
 ├── 15748
 │   ├── 1103organogram.rdf
 │   ├── 1109organogram.rdf
 │   └── metadata.json
 ├── 15749
-│   ├── government-staff-and-salary-data-march-2011-gscc.rdf
 │   └── metadata.json
 ├── 15753
-│   ├── may-2011-government-staff-and-salary-data-partnerships-for-schools-30-march-2011.rdf
 │   └── metadata.json
 ├── 15757
-│   ├── iwm-staff-and-salary-data-sept-2011.rdf
 │   └── metadata.json
 ├── 15761
-│   ├── government-staff-and-salary-data-ihol-march-2011-2.rdf
 │   └── metadata.json
 ├── 15762
-│   ├── metadata.json
-│   └── transparency-organogram.rdf
+│   └── metadata.json
 ├── 15766
-│   ├── geffrye-museum-staff-and-salary-data-july-2011.rdf
-│   ├── geffrye-museum-staff-and-salary-data-nov-2011.rdf
 │   └── metadata.json
 ├── 15767
-│   ├── 1932550.rdf
-│   ├── 2035652.rdf
 │   └── metadata.json
 ├── 1577
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15771
-│   ├── 2011-03-31-nhm-organograms.rdf
-│   ├── 2011-09-30-nhm-organograms.rdf
 │   └── metadata.json
 ├── 15774
-│   ├── 2011-05-26-staff-posts-and-salary-data.rdf
-│   ├── 2011-12-05-ofqual-staff-salary-data-30092011.rdf
 │   └── metadata.json
 ├── 15779
-│   ├── copy-of-government-staff-and-salary-data-blank-template-october-2011-2.rdf
-│   ├── government-staff-and-salary-data-template-v2.rdf
 │   └── metadata.json
 ├── 1578
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15781
-│   ├── 1881-senior-and-junior-staff-and-their-pay-grades.rdf
 │   └── metadata.json
 ├── 15784
 │   ├── metadata.json
 │   └── transparency-data-for-government-staff-and-salary-data-march-2011.rdf
 ├── 15786
-│   ├── metadata.json
-│   └── uksport-staff-and-salary-data-march2011.rdf
+│   └── metadata.json
 ├── 15788
 │   ├── 2011-nml-organogram.rdf-service-wms-request-getcapabilities-version-1.3
-│   ├── metadata.json
-│   └── nml-organogram2010.rdf
+│   └── metadata.json
 ├── 1579
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 15798
-│   ├── government-staff-and-salary-data-blank-template-1311955022.rdf
-│   ├── metadata.json
-│   └── organisation-data-1321011754.rdf
+│   └── metadata.json
 ├── 1580
 │   ├── metadata.json
 │   └── rows.rdf
@@ -9064,28 +9012,20 @@ datasets
 │   ├── rdfbauhist-fotosamm-gujer-uster-1893-190920170607gujer-clean.nt
 │   └── rdfbauhist-fotosamm-gujer-uster-1893-190920170607gujer-wgs84.nt
 ├── 15998
-│   ├── metadata.json
-│   ├── rdfdatamodel-altri-bandi.rdf
-│   ├── rdfdatamodel-bandi-forniture-servizi.rdf
-│   └── rdfdatamodel-bandi-lavori-pubblici.rdf
+│   └── metadata.json
 ├── 1600
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 16001
-│   ├── metadata.json
-│   └── rdfschema.rdf
+│   └── metadata.json
 ├── 16002
-│   ├── metadata.json
-│   └── rdfdatamodel-notizia.rdf
+│   └── metadata.json
 ├── 16004
-│   ├── metadata.json
-│   └── rdfdatamodel-concorso.rdf
+│   └── metadata.json
 ├── 16005
-│   ├── metadata.json
-│   └── rdfdatamodel-incarico.rdf
+│   └── metadata.json
 ├── 16006
-│   ├── metadata.json
-│   └── rdfdatamodel-hotspot.rdf
+│   └── metadata.json
 ├── 1602
 │   ├── metadata.json
 │   └── rows.rdf
@@ -20418,34 +20358,25 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 21522
-│   ├── metadata.json
-│   └── rdfdatamodel-immobile.rdf
+│   └── metadata.json
 ├── 21523
-│   ├── metadata.json
-│   └── rdfschema.rdf
+│   └── metadata.json
 ├── 21525
-│   ├── metadata.json
-│   └── rdfdatamodel-incarico.rdf
+│   └── metadata.json
 ├── 21526
-│   ├── metadata.json
-│   ├── rdfdatamodel-altri-bandi.rdf
-│   ├── rdfdatamodel-bandi-forniture-servizi.rdf
-│   └── rdfdatamodel-bandi-lavori-pubblici.rdf
+│   └── metadata.json
 ├── 21527
-│   ├── metadata.json
-│   └── rdfdatamodel-concorso.rdf
+│   └── metadata.json
 ├── 21528
-│   ├── metadata.json
-│   └── rdfdatamodel-notizia.rdf
+│   └── metadata.json
 ├── 21529
-│   ├── metadata.json
-│   └── rdfdatamodel-hotspot.rdf
+│   └── metadata.json
 ├── 2153
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 21532
 │   ├── jrcnamesmodel.rdf
-│   ├── jrcnames-uri.zip
+│   ├── jrcnames_uri.nt
 │   └── metadata.json
 ├── 21536
 │   ├── glossary.rdf
@@ -38568,64 +38499,48 @@ datasets
 │   ├── a5ak-t2f4.rdf
 │   └── metadata.json
 ├── 41371
-│   ├── 9evq-q4ni.rdf
 │   └── metadata.json
 ├── 41387
-│   ├── metadata.json
-│   └── t4mm-ynkd.rdf
+│   └── metadata.json
 ├── 4139
 │   └── metadata.json
 ├── 41391
-│   ├── czii-xhj9.rdf
 │   └── metadata.json
 ├── 4140
 │   └── metadata.json
 ├── 4142
 │   └── metadata.json
 ├── 41437
-│   ├── ifrs-uzjp.rdf
 │   └── metadata.json
 ├── 41439
-│   ├── 4icd-wtsk.rdf
 │   └── metadata.json
 ├── 41444
-│   ├── 3gk2-vh5k.rdf
 │   └── metadata.json
 ├── 41445
-│   ├── ipzh-446j.rdf
 │   └── metadata.json
 ├── 41449
-│   ├── 482t-q4rs.rdf
 │   └── metadata.json
 ├── 41450
-│   ├── metadata.json
-│   └── uh35-acwz.rdf
+│   └── metadata.json
 ├── 41454
-│   ├── 42yc-giac.rdf
 │   └── metadata.json
 ├── 41455
-│   ├── metadata.json
-│   └── v6fm-igu4.rdf
+│   └── metadata.json
 ├── 41456
-│   ├── crr5-2d65.rdf
 │   └── metadata.json
 ├── 41465
-│   ├── metadata.json
-│   └── nvy7-tkh5.rdf
+│   └── metadata.json
 ├── 41469
-│   ├── i5wn-ri8c.rdf
 │   └── metadata.json
 ├── 4147
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41470
-│   ├── ihqv-a9gs.rdf
 │   └── metadata.json
 ├── 4148
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41485
-│   ├── jqvy-ujks.rdf
 │   └── metadata.json
 ├── 4149
 │   ├── metadata.json
@@ -38634,98 +38549,69 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41501
-│   ├── e5jd-ytjd.rdf
 │   └── metadata.json
 ├── 41503
-│   ├── metadata.json
-│   └── pmjs-6uqq.rdf
+│   └── metadata.json
 ├── 41504
-│   ├── 6nsk-9bvz.rdf
 │   └── metadata.json
 ├── 41506
-│   ├── kcq6-et5q.rdf
 │   └── metadata.json
 ├── 41507
-│   ├── metadata.json
-│   └── umf4-5kmu.rdf
+│   └── metadata.json
 ├── 4151
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41515
-│   ├── 262v-pqa4.rdf
 │   └── metadata.json
 ├── 41516
-│   ├── bua2-8m9z.rdf
 │   └── metadata.json
 ├── 41517
-│   ├── euqj-acaw.rdf
 │   └── metadata.json
 ├── 41518
-│   ├── metadata.json
-│   └── u8mi-c6pg.rdf
+│   └── metadata.json
 ├── 41519
-│   ├── eamz-affj.rdf
 │   └── metadata.json
 ├── 41520
-│   ├── ckfq-pjk7.rdf
 │   └── metadata.json
 ├── 41521
-│   ├── metadata.json
-│   └── thk4-xhpc.rdf
+│   └── metadata.json
 ├── 41522
-│   ├── edbj-pf5t.rdf
 │   └── metadata.json
 ├── 41529
-│   ├── bdqp-b69h.rdf
 │   └── metadata.json
 ├── 41531
-│   ├── 7c6w-2qvk.rdf
 │   └── metadata.json
 ├── 41534
-│   ├── metadata.json
-│   └── pfin-hytb.rdf
+│   └── metadata.json
 ├── 41539
-│   ├── 8axi-nkrk.rdf
 │   └── metadata.json
 ├── 41543
-│   ├── jt95-7nbp.rdf
 │   └── metadata.json
 ├── 41544
-│   ├── metadata.json
-│   └── ve8x-7wpr.rdf
+│   └── metadata.json
 ├── 41545
-│   ├── icy5-rmhs.rdf
 │   └── metadata.json
 ├── 41551
-│   ├── metadata.json
-│   └── wv9g-2f6t.rdf
+│   └── metadata.json
 ├── 41553
-│   ├── ebpk-uqj6.rdf
 │   └── metadata.json
 ├── 41554
-│   ├── metadata.json
-│   └── peqv-8v8d.rdf
+│   └── metadata.json
 ├── 41562
-│   ├── 9jqf-bv5r.rdf
 │   └── metadata.json
 ├── 41566
-│   ├── metadata.json
-│   └── u2pr-yjem.rdf
+│   └── metadata.json
 ├── 41567
-│   ├── dtbb-ntrk.rdf
 │   └── metadata.json
 ├── 41575
-│   ├── hrms-kvnm.rdf
 │   └── metadata.json
 ├── 41579
-│   ├── ceue-hyth.rdf
 │   └── metadata.json
 ├── 4158
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41601
-│   ├── metadata.json
-│   └── uyqg-fzse.rdf
+│   └── metadata.json
 ├── 4161
 │   ├── metadata.json
 │   └── rows.rdf
@@ -38733,91 +38619,65 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41621
-│   ├── jxnv-8xjh.rdf
 │   └── metadata.json
 ├── 41623
-│   ├── metadata.json
-│   └── uinr-uget.rdf
+│   └── metadata.json
 ├── 41628
-│   ├── hjfz-c27j.rdf
 │   └── metadata.json
 ├── 41629
-│   ├── metadata.json
-│   └── yv5n-n5p6.rdf
+│   └── metadata.json
 ├── 4163
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41633
-│   ├── juhd-9k9e.rdf
 │   └── metadata.json
 ├── 41637
-│   ├── 8u94-yfgk.rdf
 │   └── metadata.json
 ├── 4164
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41642
-│   ├── metadata.json
-│   └── tpe5-6nkd.rdf
+│   └── metadata.json
 ├── 41646
-│   ├── 56wk-ihbf.rdf
 │   └── metadata.json
 ├── 41650
-│   ├── mei3-ydbi.rdf
 │   └── metadata.json
 ├── 41653
-│   ├── 2qeb-tphe.rdf
 │   └── metadata.json
 ├── 41654
-│   ├── knjf-uj4v.rdf
 │   └── metadata.json
 ├── 41658
-│   ├── metadata.json
-│   └── yrc6-b6sx.rdf
+│   └── metadata.json
 ├── 41659
-│   ├── azh4-cire.rdf
 │   └── metadata.json
 ├── 41664
-│   ├── metadata.json
-│   └── w6du-72j6.rdf
+│   └── metadata.json
 ├── 41675
-│   ├── metadata.json
-│   └── yszw-pq5x.rdf
+│   └── metadata.json
 ├── 41683
-│   ├── 32gq-nuwm.rdf
 │   └── metadata.json
 ├── 41685
-│   ├── hbkv-72qc.rdf
 │   └── metadata.json
 ├── 41686
-│   ├── fhqq-2mjq.rdf
 │   └── metadata.json
 ├── 4169
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 41690
-│   ├── j5h2-6za2.rdf
 │   └── metadata.json
 ├── 41701
-│   ├── metadata.json
-│   └── xpng-ppj3.rdf
+│   └── metadata.json
 ├── 41702
-│   ├── 95br-iyzp.rdf
 │   └── metadata.json
 ├── 41703
-│   ├── 7xmy-88ts.rdf
 │   └── metadata.json
 ├── 41704
-│   ├── ega3-ewab.rdf
 │   └── metadata.json
 ├── 41705
-│   ├── ahxt-tnnb.rdf
 │   └── metadata.json
 ├── 41706
-│   ├── gz3r-fk2y.rdf
 │   └── metadata.json
 ├── 41707
-│   ├── 6sdr-8fgz.rdf
 │   └── metadata.json
 ├── 4171
 │   ├── metadata.json
@@ -40952,8 +40812,7 @@ datasets
 │   ├── 9kga-zsdx.rdf
 │   └── metadata.json
 ├── 4354
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 43540
 │   └── metadata.json
 ├── 4355
@@ -57047,8 +56906,6 @@ datasets
 ├── 5608
 │   └── metadata.json
 ├── 561
-│   ├── covidcountystatistics.ttl
-│   ├── covidstatisticsprofile.ttl
 │   └── metadata.json
 ├── 5614
 │   └── metadata.json
@@ -57174,17 +57031,14 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 5662
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5663
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5664
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 5665
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5666
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57242,8 +57096,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 569
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5690
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57302,14 +57155,11 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 5719
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5720
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5721
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5723
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57332,8 +57182,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 573
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5731
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57347,26 +57196,19 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 5739
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 574
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5740
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5741
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5742
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5743
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5744
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5745
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57407,8 +57249,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 576
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5760
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57646,8 +57487,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 588
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5880
 │   ├── metadata.json
 │   └── rows.rdf
@@ -57876,8 +57716,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 599
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 5990
 │   ├── metadata.json
 │   └── rows.rdf
@@ -58413,8 +58252,7 @@ datasets
 │   ├── metadata.json
 │   └── qugr-ik9d.rdf
 ├── 615
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 61500
 │   ├── metadata.json
 │   └── w8g3-dbfg.rdf
@@ -58856,8 +58694,7 @@ datasets
 │   ├── cb3y-mhht.rdf
 │   └── metadata.json
 ├── 618
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6180
 │   ├── metadata.json
 │   └── rows.rdf
@@ -59142,8 +58979,7 @@ datasets
 │   ├── 52wr-2xj4.rdf
 │   └── metadata.json
 ├── 622
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 62200
 │   ├── 9spn-duai.rdf
 │   └── metadata.json
@@ -59313,8 +59149,7 @@ datasets
 │   ├── fkqn-a7pc.rdf
 │   └── metadata.json
 ├── 623
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 62302
 │   ├── metadata.json
 │   └── xbzu-xg5e.rdf
@@ -61137,8 +60972,7 @@ datasets
 │   ├── metadata.json
 │   └── w8p5-9zgi.rdf
 ├── 633
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 63301
 │   ├── metadata.json
 │   └── nx7w-jb8v.rdf
@@ -61641,8 +61475,7 @@ datasets
 │   ├── metadata.json
 │   └── y2mf-ewaj.rdf
 ├── 635
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6350
 │   ├── metadata.json
 │   └── rows.rdf
@@ -61834,8 +61667,7 @@ datasets
 │   ├── kz8x-uky9.rdf
 │   └── metadata.json
 ├── 636
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6360
 │   ├── metadata.json
 │   └── rows.rdf
@@ -62716,49 +62548,38 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64157
-│   ├── kptj-tafi.rdf
 │   └── metadata.json
 ├── 64159
-│   ├── metadata.json
-│   └── vkyy-2v6z.rdf
+│   └── metadata.json
 ├── 6416
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64163
-│   ├── i85s-twae.rdf
 │   └── metadata.json
 ├── 64165
-│   ├── metadata.json
-│   └── vrsm-k79r.rdf
+│   └── metadata.json
 ├── 64167
-│   ├── 4f3r-bvja.rdf
 │   └── metadata.json
 ├── 64168
-│   ├── 3z7i-zwvu.rdf
 │   └── metadata.json
 ├── 6417
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64173
-│   ├── metadata.json
-│   └── vrkj-8w4d.rdf
+│   └── metadata.json
 ├── 64174
-│   ├── metadata.json
-│   └── vnqw-sx9g.rdf
+│   └── metadata.json
 ├── 6418
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64181
-│   ├── metadata.json
-│   └── mudx-8k94.rdf
+│   └── metadata.json
 ├── 64186
-│   ├── gd4u-cu57.rdf
 │   └── metadata.json
 ├── 6419
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64194
-│   ├── 5t3u-serj.rdf
 │   └── metadata.json
 ├── 642
 │   ├── metadata.json
@@ -62767,7 +62588,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 64200
-│   ├── b3bu-fswq.rdf
 │   └── metadata.json
 ├── 64208
 │   ├── metadata.json
@@ -62916,8 +62736,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 644
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6440
 │   ├── metadata.json
 │   └── rows.rdf
@@ -65628,8 +65447,7 @@ datasets
 │   ├── 3p72-ce6e.rdf
 │   └── metadata.json
 ├── 659
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6590
 │   ├── metadata.json
 │   └── rows.rdf
@@ -68536,8 +68354,7 @@ datasets
 │   ├── metadata.json
 │   └── qpyn-fc7f.rdf
 ├── 684
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 6840
 │   ├── metadata.json
 │   └── rows.rdf
@@ -68956,8 +68773,7 @@ datasets
 │   ├── metadata.json
 │   └── shpc-w93a.rdf
 ├── 687
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 68700
 │   ├── hxxt-amzh.rdf
 │   └── metadata.json
@@ -72886,8 +72702,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 725
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7250
 │   ├── metadata.json
 │   └── rows.rdf
@@ -72921,8 +72736,7 @@ datasets
 ├── 72597
 │   └── metadata.json
 ├── 726
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7260
 │   ├── metadata.json
 │   └── rows.rdf
@@ -74850,8 +74664,7 @@ datasets
 │   ├── metadata.json
 │   └── q39p-87c4.rdf
 ├── 743
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7430
 │   ├── metadata.json
 │   └── rows.rdf
@@ -75580,8 +75393,7 @@ datasets
 │   ├── a3vc-fsgj.rdf
 │   └── metadata.json
 ├── 748
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7480
 │   ├── metadata.json
 │   └── rows.rdf
@@ -76191,8 +76003,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 753
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7530
 │   ├── metadata.json
 │   └── rows.rdf
@@ -78092,8 +77903,7 @@ datasets
 │   ├── 6wy6-6agj.rdf
 │   └── metadata.json
 ├── 764
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7640
 │   ├── metadata.json
 │   └── rows.rdf
@@ -79053,8 +78863,7 @@ datasets
 │   ├── metadata.json
 │   └── ynic-uz5i.rdf
 ├── 769
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 76901
 │   ├── bx2w-sb84.rdf
 │   └── metadata.json
@@ -79343,8 +79152,7 @@ datasets
 │   ├── ci25-wgt7.rdf
 │   └── metadata.json
 ├── 772
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7720
 │   ├── metadata.json
 │   └── rows.rdf
@@ -79418,8 +79226,7 @@ datasets
 │   ├── metadata.json
 │   └── tss8-455b.rdf
 ├── 773
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 77302
 │   ├── metadata.json
 │   └── tds7-a3cj.rdf
@@ -80142,8 +79949,7 @@ datasets
 ├── 77940
 │   └── metadata.json
 ├── 77951
-│   ├── metadata.json
-│   └── rj4h-8pn4.rdf
+│   └── metadata.json
 ├── 77956
 │   ├── metadata.json
 │   └── t4tz-a9mx.rdf
@@ -80187,8 +79993,7 @@ datasets
 │   ├── metadata.json
 │   └── pst-2020-10-19.rdf
 ├── 780
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7800
 │   ├── metadata.json
 │   └── rows.rdf
@@ -80266,8 +80071,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 784
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7840
 │   ├── metadata.json
 │   └── rows.rdf
@@ -80322,8 +80126,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 786
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7860
 │   └── metadata.json
 ├── 7861
@@ -80818,8 +80621,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 794
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 7941
 │   ├── metadata.json
 │   └── rows.rdf
@@ -81274,8 +81076,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 807
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8070
 │   ├── metadata.json
 │   └── rows.rdf
@@ -81646,8 +81447,7 @@ datasets
 │   ├── 5u7w-z9dx.rdf
 │   └── metadata.json
 ├── 811
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8110
 │   ├── metadata.json
 │   └── rows.rdf
@@ -82616,8 +82416,7 @@ datasets
 │   ├── metadata.json
 │   └── yhnm-5tci.rdf
 ├── 818
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 81802
 │   ├── metadata.json
 │   └── vc6j-zjsc.rdf
@@ -83670,8 +83469,7 @@ datasets
 │   ├── catalog.ttl
 │   └── metadata.json
 ├── 830
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8300
 │   ├── metadata.json
 │   └── rows.rdf
@@ -83777,8 +83575,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 831
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 83105
 │   └── metadata.json
 ├── 83106
@@ -84131,8 +83928,7 @@ datasets
 ├── 83692
 │   └── metadata.json
 ├── 837
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8370
 │   ├── metadata.json
 │   └── rows.rdf
@@ -84926,8 +84722,7 @@ datasets
 ├── 84899
 │   └── metadata.json
 ├── 849
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8490
 │   ├── metadata.json
 │   └── rows.rdf
@@ -85684,8 +85479,7 @@ datasets
 ├── 85798
 │   └── metadata.json
 ├── 858
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8580
 │   ├── metadata.json
 │   └── rows.rdf
@@ -85749,8 +85543,7 @@ datasets
 ├── 85899
 │   └── metadata.json
 ├── 859
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8590
 │   ├── metadata.json
 │   └── rows.rdf
@@ -86049,8 +85842,7 @@ datasets
 ├── 86094
 │   └── metadata.json
 ├── 861
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8610
 │   ├── metadata.json
 │   └── rows.rdf
@@ -87930,8 +87722,7 @@ datasets
 │   ├── d6tx-zrce.rdf
 │   └── metadata.json
 ├── 880
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8800
 │   ├── metadata.json
 │   └── rows.rdf
@@ -88721,8 +88512,7 @@ datasets
 │   ├── ivvg-neza.rdf
 │   └── metadata.json
 ├── 888
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8880
 │   ├── metadata.json
 │   └── rows.rdf
@@ -89329,8 +89119,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 894
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8940
 │   ├── metadata.json
 │   └── rows.rdf
@@ -89358,8 +89147,7 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 895
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 8950
 │   ├── metadata.json
 │   └── rows.rdf
@@ -90921,8 +90709,7 @@ datasets
 ├── 9691
 │   └── metadata.json
 ├── 9692
-│   ├── metadata.json
-│   └── rows.rdf
+│   └── metadata.json
 ├── 9693
 │   ├── metadata.json
 │   └── rows.rdf
