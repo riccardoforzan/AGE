@@ -7,6 +7,8 @@ The instructions below assumes that you are executing this scripts in the folder
 For example, if you simply clone this repo and execute the commands below you will have a directory structure like this:
 ```
 AGE
+├── analysis
+|   └── ...
 ├── docs
 |   └── ...
 ├── logs
@@ -20,15 +22,16 @@ AGE
 |   ├── downloader.py
 |   ├── extract.log
 |   ├── extract.py
-|   └── README.md
-├── stats
-|   └── ...
-├── utils
+|   ├── README.md
+|   └── requirements.txt
+├── utility
 |   └── ...
 ├── .gitignore
 ├── README.md
-├── requirements.txt
 ```
+
+### Preliminary step
+Install all the required non-default packages using `pip install -r requirements.txt`
 
 ### Phase 1 - Get a hook to the ACORDAR repo
 Clone the ACORDAR repository
