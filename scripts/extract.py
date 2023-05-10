@@ -330,11 +330,13 @@ if __name__ == "__main__":
     parser.add_argument("folder", type=str, help="Folder in which datasets are stored")
     parser.add_argument(
         "--without-size-limit",
+        default=False,
         action=argparse.BooleanOptionalAction,
         help="Enables the processing of files which size is more than 100MB",
     )
     parser.add_argument(
         "--skip-processed",
+        default=False,
         action=argparse.BooleanOptionalAction,
         help="Datasets folders that already contain a file `metadata.json` will be skip",
     )
@@ -351,6 +353,8 @@ if __name__ == "__main__":
     datasets = list(
         map(lambda did: f"{dataset_folder}/{did}", os.listdir(dataset_folder))
     )
+
+    datasets.sort()
 
     # parametrize the function call that is going to be executed in the pool
     parametrized_function_call = partial(
