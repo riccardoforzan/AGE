@@ -1,10 +1,10 @@
 # Scripts
 
-In this folder are contained the two scripts that download and extract data from the collection.
+In this folder are the two scripts that download and extract data from the collection.
 
-The instructions below assumes that you are executing this scripts in the folder in which you want to download the file.
+The instructions below assume that you are executing these scripts in the folder in which you want to download the file.
 
-For example, if you simply clone this repo and execute the commands below you will have a directory structure like this:
+For example, if you simply clone this repo and execute the commands below, you will have a directory structure like this:
 ```
 AGE
 ├── analysis
