@@ -6801,7 +6801,6 @@ datasets/
 │   ├── ahess-0395-2649.rdf
 │   ├── bulmo-0007-473x-2000-num-158-2-2373.rdf
 │   ├── define_UMS_Persee.rdf
-│   ├── license.txt
 │   ├── metadata.json
 │   ├── PERSEE_align_All_2021-09-24.rdf
 │   ├── PERSEE_align_Bnf_2021-09-24.rdf
@@ -6816,8 +6815,7 @@ datasets/
 │   ├── PERSEE_align_wikidata_2021-09-24.rdf
 │   ├── PERSEE_align_wikipedia_2021-09-24.rdf
 │   ├── PERSEE_align_wikipediaFR_2021-09-24.rdf
-│   ├── persee-ontology.owl
-│   └── persee-person-align-rdf.tar.gz
+│   └── persee-ontology.owl
 ├── 1400
 │   ├── metadata.json
 │   └── rows.rdf

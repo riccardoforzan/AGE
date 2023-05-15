@@ -8,7 +8,11 @@ It contains:
     - [tree.txt](./raw/tree.txt) dump of the downloaded directory structure
 
 - The folder [mods](./mods/) contains the modification performed on the raw collection
-    - [Executed jupyter notebook](./mods/mods.ipynb) used to obtain the modified collection starting from the raw one
+    - [Executed jupyter notebook](./mods/mods.ipynb) used to obtain the modified collection starting from the raw one. Here a list of the modifications performed:
+        - Deleted all HTML/JSON files (not JSONLD)
+        - Assigned extensions in a semi-automatic way to all files without any
+        - Decompressed all the archives 
+        - Removed all files with that cannot be parsed with RDFLib (`ERROR` only, files generating `warnings` are still valid!)
     - [tree.txt](./mods/tree.txt) dump of the downloaded directory structure
 
 ## Check diff in tree structure after manual processing
