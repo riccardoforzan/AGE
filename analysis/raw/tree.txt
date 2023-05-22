@@ -1,4 +1,4 @@
-datasets
+datasets/
 ├── 1
 │   ├── curso-sf-dump.rdf
 │   ├── curso-sf-dump.ttl
@@ -6561,7 +6561,6 @@ datasets
 │   ├── metadata.json
 │   └── rows.rdf
 ├── 13461
-│   ├── all-languages.tar
 │   ├── berlin.n3
 │   ├── berlin.rdf
 │   ├── dbpedia-3.5.1.owl.bz2
@@ -91676,3 +91675,5 @@ datasets
 └── 9995
     ├── metadata.json
     └── rows.rdf
+
+31589 directories, 60087 files
