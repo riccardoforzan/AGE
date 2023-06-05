@@ -1,4 +1,5 @@
-rdflib==6.3.2
-tqdm==4.65.0
+requests==2.31.0
 python-slugify==8.0.1
-rich==13.3.5
+tqdm==4.65.0
+rdflib==6.3.2
+lxml==4.9.2

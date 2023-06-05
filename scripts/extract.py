@@ -8,24 +8,15 @@ import json
 import logging
 import pathlib
 import argparse
-import statistics
+from tqdm import tqdm
 from rdflib import Graph
 from functools import partial
-from rich.progress import Progress
 from multiprocessing import Pool, cpu_count
 
 RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
 
-SIZE_LIMIT = 100 * 1024 * 1024  # 100 MB
-
-logging.basicConfig(
-    level=logging.INFO,
-    filename="extract.log",
-    filemode="w",
-    format="%(asctime)-15s %(levelname)-8s %(message)s",
-)
-
-log = logging.getLogger()
+# Files larger than this size are not going to be processed through RDFLib
+SIZE_LIMIT = 200 >> 20  # 200 MB
 
 
 def clean_string(s: str) -> str:
@@ -194,8 +185,8 @@ def extract_data_from_file(file_path: str) -> dict:
     data["entities"] = get_entities(graph)
     data["properties"] = get_properties(graph)
     data["connections"] = get_number_of_connections(graph)
-    data["connected_vertices"] = get_number_of_connected_vertices(graph)
-    data["average_literals_per_vertex"] = get_average_of_literals_per_vertex(graph)
+    data["connectedVertices"] = get_number_of_connected_vertices(graph)
+    data["averageLiteralsPerVertex"] = get_average_of_literals_per_vertex(graph)
 
     return data
 
@@ -205,6 +196,9 @@ def process_dataset(
     with_size_limit: bool,
     skip_already_processed: bool,
 ):
+    
+    global log
+
     # check that the given path is a folder
     if not os.path.isdir(dataset_folder):
         log.error(f"Path {dataset_folder} is not a folder")
@@ -222,7 +216,7 @@ def process_dataset(
         metadata = json.load(f, strict=False)
 
         # check if the dataset has been already processed
-        already_processed = "used_files" in metadata
+        already_processed = "usedFiles" in metadata
 
         # if the dataset has already been processed and skip already processed, then return
         if already_processed and skip_already_processed:
@@ -235,9 +229,9 @@ def process_dataset(
         # remove from the files to analyze `metadata.json`
         files_in_directory.remove("metadata.json")
 
-        usable_files = list()  # files that potentially can be mined
-        used_files = list()  # files successfully mined
-        unused_files = list()  # files not mined (format or parsing issues)
+        usable_files = list()  # files that potentially can be used
+        used_files = list()  # files successfully used
+        unused_files = list()  # files not used (format or parsing issues)
 
         # filter out the files from the usable ones
         for file in files_in_directory:
@@ -263,31 +257,27 @@ def process_dataset(
                 log.warning(f"{dataset_folder}/{file} does not have a valid extension")
 
         # start extracting from the files inside the folder
-        classes = list()
-        literals = list()
-        entities = list()
-        properties = list()
-        connections = list()
-        connected_vertices = list()
-        average_literals_per_vertex = list()
+        extracted = list()
 
         # extract data from the files inside the directory of the dataset
         for file in usable_files:
             try:
                 file_path = f"{dataset_folder}/{file}"
-                data = extract_data_from_file(file_path)
+                file_size = os.path.getsize(file_path)
 
-                # merge extracted data
-                classes.extend(data["classes"])
-                literals.extend(data["literals"])
-                entities.extend(data["entities"])
-                properties.extend(data["properties"])
-                connections.append(data["connections"])
-                connected_vertices.append(data["connected_vertices"])
-                average_literals_per_vertex.append(data["average_literals_per_vertex"])
+                # represent the data extracted from this file
+                representation = dict()
+                representation["file"] = file
+                representation["fileSize"] = file_size
+
+                data = extract_data_from_file(file_path)                
+                representation = representation | data
+
+                representation["extractedWith"] = "RDFLib"
 
                 # register the used file
                 used_files.append(file)
+                extracted.append(representation)
 
             except Exception as e:
                 unused_files.append(file)
@@ -295,22 +285,12 @@ def process_dataset(
             finally:
                 continue
 
-        # merge together all the data for the dataset
-        metadata["classes"] = classes
-        metadata["literals"] = literals
-        metadata["entities"] = entities
-        metadata["properties"] = properties
-        metadata["connections"] = sum(connections)
-        metadata["connected_vertices"] = sum(connected_vertices)
-        metadata["average_literals_per_vertex"] = (
-            statistics.fmean(average_literals_per_vertex)
-            if len(average_literals_per_vertex) > 0
-            else 0
-        )
+        # save extracted data
+        metadata["extracted"] = extracted
 
         # register used and unused files
-        metadata["used_files"] = used_files
-        metadata["unused_files"] = unused_files
+        metadata["usedFiles"] = used_files
+        metadata["unusedFiles"] = unused_files
 
         # print out a JSON file containing all the data
         content = json.dumps(metadata, ensure_ascii=False, indent=4)
@@ -346,6 +326,15 @@ if __name__ == "__main__":
     skip_already_processed = args.skip_processed == True
     without_size_limit = args.without_size_limit == True
 
+    logging.basicConfig(
+        level=logging.INFO,
+        filename="extract.log",
+        filemode="w",
+        format="%(asctime)-15s %(levelname)-8s %(message)s",
+    )
+
+    log = logging.getLogger()
+
     if not without_size_limit:
         print(f"Size limit set to {SIZE_LIMIT} byte")
 
@@ -366,8 +355,6 @@ if __name__ == "__main__":
     # create the pool and assign jobs to the pool
     pool_size = cpu_count() - 1
 
-    with Pool(pool_size) as p, Progress() as progress:
-        task = progress.add_task("[green]Processing...", total=len(datasets))
-
-        for _ in p.imap_unordered(parametrized_function_call, datasets):
-            progress.update(task, advance=1)
+    with Pool(pool_size) as p, tqdm(total=len(datasets), colour="blue") as bar:
+        for _ in p.imap(parametrized_function_call, datasets):
+            bar.update()

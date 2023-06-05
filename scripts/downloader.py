@@ -19,14 +19,6 @@ from slugify import slugify
 # Accepted file suffixes
 RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
 
-# Logging setup
-logging.basicConfig(
-    filename="download.log",
-    filemode="w",
-    format="%(asctime)-15s %(levelname)-8s %(message)s",
-)
-log = logging.getLogger("datasets-downloader")
-
 
 def clean_string(s: str) -> str:
     return " ".join(s.split()).encode("unicode_escape").decode("unicode_escape")
@@ -99,6 +91,7 @@ def download_from_url(url: str, folder: str, file_name: str) -> bool:
             unit="iB",
             unit_scale=True,
             desc=f"Downloading {url}",
+            colour="green",
         ) as progress_bar,
         open(download_path, "wb") as target,
     ):
@@ -109,7 +102,10 @@ def download_from_url(url: str, folder: str, file_name: str) -> bool:
     return True
 
 
-def process_dataset(index: int, entry: dict):
+def process_dataset(index: int, entry: dict, folder: str):
+
+    global log
+
     dataset_id = entry["dataset_id"]
 
     # remove duplicate download links
@@ -118,7 +114,7 @@ def process_dataset(index: int, entry: dict):
         if url not in dataset_urls:
             dataset_urls.append(url)
 
-    download_folder = f"datasets/{dataset_id}"
+    download_folder = f"{folder}/{dataset_id}"
 
     # download attached files
     downloaded_entries = list()
@@ -148,13 +144,13 @@ def process_dataset(index: int, entry: dict):
 
     # serialize metadata and download information
     data = dict()
-    data["dataset_id"] = dataset_id
+    data["id"] = dataset_id
     data["title"] = clean_string(title)
     data["description"] = clean_string(description)
     data["author"] = clean_string(author)
     data["tags"] = clean_string(tags)
-    data["downloaded_urls"] = downloaded_entries
-    data["failed_download_urls"] = failed_urls
+    data["downloadedURLs"] = downloaded_entries
+    data["failedURLs"] = failed_urls
 
     # prepare the JSON representation of the metadata
     content = json.dumps(data, ensure_ascii=False, indent=4)
@@ -180,7 +176,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("file", type=str, help="File that contains the dataset (JSON)")
     parser.add_argument(
-        "--start-from", type=int, help="Start downloading from the given index (included)"
+        "folder", type=str, help="Path of the folder in which files will be downloaded"
+    )
+    parser.add_argument(
+        "--start-from",
+        type=int,
+        help="Start downloading from the given index (included)",
     )
     args = parser.parse_args()
 
@@ -188,6 +189,9 @@ if __name__ == "__main__":
     f = open(args.file)
     data = json.load(f, strict=False)
     f.close()
+
+    # download folder
+    download_folder = args.folder
 
     # check if resume download index has been specified
     resume_from = None
@@ -197,8 +201,18 @@ if __name__ == "__main__":
     # Used as index for dataset iterations
     index = 0
 
+    logging.basicConfig(
+        filename="download.log",
+        filemode="w",
+        format="%(asctime)-15s %(levelname)-8s %(message)s",
+    )
+    log = logging.getLogger("datasets-downloader")
+
     # start processing each dataset
-    datasets = sorted(data["datasets"], key=lambda d: int(d['dataset_id']))
+    datasets = sorted(data["datasets"], key=lambda d: int(d["dataset_id"]))
+
+    if not os.path.isdir(download_folder):
+        os.mkdir(download_folder)
 
     for entry in datasets:
         dataset_id = entry["dataset_id"]
@@ -214,5 +228,5 @@ if __name__ == "__main__":
             f"Processing dataset [ID: {dataset_id}] [INDEX: {index}] downloads: {len(entry['download'])}"
         )
 
-        process_dataset(index, entry)
+        process_dataset(index, entry, download_folder)
         index += 1
