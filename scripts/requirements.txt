@@ -1,5 +1,6 @@
-requests==2.31.0
+lightrdf==0.3.1
+python-magic==0.4.27
 python-slugify==8.0.1
-tqdm==4.65.0
 rdflib==6.3.2
-lxml==4.9.2
+requests==2.25.1
+rich==13.4.1

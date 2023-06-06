@@ -12,9 +12,9 @@ import logging
 import pathlib
 import requests
 import argparse
-from tqdm import tqdm
 from pathlib import Path
 from slugify import slugify
+from rich.progress import Progress
 
 # Accepted file suffixes
 RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
@@ -86,24 +86,22 @@ def download_from_url(url: str, folder: str, file_name: str) -> bool:
     total_size_in_bytes = int(response.headers.get("content-length", 0))
 
     with (
-        tqdm(
-            total=total_size_in_bytes,
-            unit="iB",
-            unit_scale=True,
-            desc=f"Downloading {url}",
-            colour="green",
-        ) as progress_bar,
+        Progress(expand=True) as progress_bar,
         open(download_path, "wb") as target,
     ):
+        print(f"Downloading {url}")
+        task = progress_bar.add_task(
+            f"[green]Downloading...", total=total_size_in_bytes
+        )
+
         for data in response.iter_content():
-            progress_bar.update(len(data))
+            progress_bar.update(task, advance=len(data))
             target.write(data)
 
     return True
 
 
 def process_dataset(index: int, entry: dict, folder: str):
-
     global log
 
     dataset_id = entry["dataset_id"]
@@ -125,7 +123,7 @@ def process_dataset(index: int, entry: dict, folder: str):
             download_from_url(url, download_folder, downloaded_file_name)
 
             # save the downloaded file into the downloaded entry
-            downloaded_entries.append({"url": url, "file_name": downloaded_file_name})
+            downloaded_entries.append({"url": url, "name": downloaded_file_name})
 
         except Exception as err:
             failed_urls.append(url)

@@ -8,15 +8,15 @@ import json
 import logging
 import pathlib
 import argparse
-from tqdm import tqdm
 from rdflib import Graph
 from functools import partial
+from rich.progress import Progress
 from multiprocessing import Pool, cpu_count
 
 RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
 
 # Files larger than this size are not going to be processed through RDFLib
-SIZE_LIMIT = 200 >> 20  # 200 MB
+SIZE_LIMIT = 200 * 1024 * 1024  # 200 MB
 
 
 def clean_string(s: str) -> str:
@@ -196,7 +196,6 @@ def process_dataset(
     with_size_limit: bool,
     skip_already_processed: bool,
 ):
-    
     global log
 
     # check that the given path is a folder
@@ -216,7 +215,7 @@ def process_dataset(
         metadata = json.load(f, strict=False)
 
         # check if the dataset has been already processed
-        already_processed = "usedFiles" in metadata
+        already_processed = "extracted" in metadata
 
         # if the dataset has already been processed and skip already processed, then return
         if already_processed and skip_already_processed:
@@ -270,7 +269,7 @@ def process_dataset(
                 representation["file"] = file
                 representation["fileSize"] = file_size
 
-                data = extract_data_from_file(file_path)                
+                data = extract_data_from_file(file_path)
                 representation = representation | data
 
                 representation["extractedWith"] = "RDFLib"
@@ -289,7 +288,6 @@ def process_dataset(
         metadata["extracted"] = extracted
 
         # register used and unused files
-        metadata["usedFiles"] = used_files
         metadata["unusedFiles"] = unused_files
 
         # print out a JSON file containing all the data
@@ -355,6 +353,8 @@ if __name__ == "__main__":
     # create the pool and assign jobs to the pool
     pool_size = cpu_count() - 1
 
-    with Pool(pool_size) as p, tqdm(total=len(datasets), colour="blue") as bar:
-        for _ in p.imap(parametrized_function_call, datasets):
-            bar.update()
+    with Pool(pool_size) as p, Progress(expand=True) as progress:
+        task = progress.add_task("[green]Processing...", total=len(datasets))
+
+        for _ in p.imap_unordered(parametrized_function_call, datasets):
+            progress.update(task, advance=1)
