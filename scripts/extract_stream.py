@@ -9,6 +9,8 @@ from statistics import mean
 from datetime import datetime
 from collections import defaultdict
 
+RDF_SUFFIXES = ["rdf", "ttl", "owl", "n3", "nt", "jsonld", "nq", "trig", "trix"]
+
 SIZE_LIMIT = 200 * 1024 * 1024  # 200 MB
 
 
@@ -78,9 +80,9 @@ def process_triples(
         }
 
 
-def process_file(dataset_folder: str, dataset: str, file: str):
+def process_file(datasets_folder: str, dataset: str, file: str):
     # file to be analyzed
-    base_dataset_path = f"{dataset_folder}/{dataset}"
+    base_dataset_path = f"{datasets_folder}/{dataset}"
     file_path = f"{base_dataset_path}/{file}"
     metadata_file_path = f"{base_dataset_path}/metadata.json"
 
@@ -96,10 +98,10 @@ def process_file(dataset_folder: str, dataset: str, file: str):
     try:
         data = process_triples(
             file_path,
-            f"{dataset_folder}/{dataset}/{entities_file}",
-            f"{dataset_folder}/{dataset}/{properties_file}",
-            f"{dataset_folder}/{dataset}/{literals_file}",
-            f"{dataset_folder}/{dataset}/{classes_file}",
+            f"{datasets_folder}/{dataset}/{entities_file}",
+            f"{datasets_folder}/{dataset}/{properties_file}",
+            f"{datasets_folder}/{dataset}/{literals_file}",
+            f"{datasets_folder}/{dataset}/{classes_file}",
         )
     except Exception as e:
         log.error(f"{file_path} cannot be parsed: {str(e)}")
@@ -145,7 +147,7 @@ if __name__ == "__main__":
     parser.add_argument("folder", type=str, help="Folder in which datasets are stored")
     args = parser.parse_args()
 
-    dataset_folder = args.folder
+    datasets_folder = args.folder
 
     logging.basicConfig(
         level=logging.INFO,
@@ -160,8 +162,8 @@ if __name__ == "__main__":
     files_to_process = queue.Queue()
 
     # Fill the queue with files to process
-    for dataset in os.listdir(dataset_folder):
-        metadata_file_path = f"{dataset_folder}/{dataset}/metadata.json"
+    for dataset in os.listdir(datasets_folder):
+        metadata_file_path = f"{datasets_folder}/{dataset}/metadata.json"
 
         with open(metadata_file_path, "r") as f:
             metadata = json.load(f, strict=False)
@@ -169,7 +171,7 @@ if __name__ == "__main__":
             keys = metadata.keys()
             if "unusedFiles" in keys and len(metadata["unusedFiles"]) > 0:
                 for file in metadata["unusedFiles"]:
-                    file_path = f"{dataset_folder}/{dataset}/{file}"
+                    file_path = f"{datasets_folder}/{dataset}/{file}"
                     file_size = os.path.getsize(file_path)
 
                     if file_size > SIZE_LIMIT:
@@ -178,4 +180,4 @@ if __name__ == "__main__":
     # Process the jobs from the queue sequentially
     while not files_to_process.empty():
         dataset, file = files_to_process.get()
-        process_file(dataset_folder, dataset, file)
+        process_file(datasets_folder, dataset, file)

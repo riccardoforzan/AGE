@@ -22,6 +22,8 @@ AGE
 |   ├── downloader.py
 |   ├── extract.log
 |   ├── extract.py
+|   ├── extract_stream.log
+|   ├── extract_stream.py
 |   ├── README.md
 |   └── requirements.txt
 ├── utility
@@ -72,40 +74,39 @@ The execution of this command creates a file `metadata.json` inside each dataset
 ### Example of `metadata.json` file
 ```json
 {
-    "dataset_id": "39",
-    "title": "Finanzämter",
-    "description": "Standorte und Kontaktdaten der Finanzämter in Schleswig-Holstein",
-    "author": "",
-    "tags": "finanzamt;zufish;",
-    "downloaded_urls": [
+{
+    "id": "32276",
+    "title": "Nova Scotia Provincial Ambient Nitrogen Oxides (NOx, NO2, NO) Hourly Data Lake Major",
+    "description": "Hourly ambient nitrogen oxides (NOx, NO2, NO) data in parts per billion from provincial ambient air quality monitoring stations across Nova Scotia up to the end of 2019.",
+    "author": "Open Data Nova Scotia",
+    "tags": "canadian ambient air quality standards;caaqs;air pollution;air quality;environmental monitoring;environmental reporting;nitrogen oxide;nitrogen dioxide;nox;no2;lake major",
+    "downloadedURLs": [
         {
-            "url": "https://opendata.zitsh.de/data/zufish/finanzamt_2020-01-07.rdf",
-            "file_name": "finanzamt-2020-01-07.rdf"
+            "url": "https://data.novascotia.ca/resource/rqp4-39eg.rdf",
+            "name": "rqp4-39eg.rdf"
         }
     ],
-    "failed_download_urls": [],
-    "classes": [
-        "http://schema.org/GeoCoordinates",
-        ...
+    "failedURLs": [],
+    "extracted": [
+        {
+            "file": "rqp4-39eg.rdf",
+            "size": 438242,
+            "classesFile": "20230608-130714-rqp4-39eg-rdf-classes.txt",
+            "literalsFile": "20230608-130714-rqp4-39eg-rdf-literals.txt",
+            "entitiesFile": "20230608-130714-rqp4-39eg-rdf-entities.txt",
+            "propertiesFile": "20230608-130714-rqp4-39eg-rdf-properties.txt",
+            "connections": 2000,
+            "connectedVertices": 1001,
+            "averageLiteralsPerVertex": 5.957,
+            "extractedWith": "RDFLib"
+        }
     ],
-    "literals": [
-        "54.77532148075464",
-        ...
-    ],
-    "entities": [
-        "Nea8b52151b7e4a4c891e238f275b84ae",
-        ...
-    ],
-    "properties": [
-        "http://schema.org/longitude",
-        ...
-    ],
-    "connections": 126,
-    "connected_vertices": 76,
-    "average_literals_per_vertex": 3.315,
-    "used_files": [
-        "finanzamt-2020-01-07.rdf"
-    ],
-    "unused_files": []
+    "unusedFiles": [
+        {
+            "file": "example.txt",
+            "size": 61900
+        }
+    ]
+}
 }
 ```
