@@ -32,9 +32,6 @@ AGE
 ├── README.md
 ```
 
-### Preliminary step
-Install all the required non-default packages using `pip install -r requirements.txt`
-
 ### Phase 1 - Get a hook to the ACORDAR repo
 Clone the ACORDAR repository
 ```sh
@@ -67,7 +64,7 @@ datasets
 
 Start the extraction of the data from the downloaded files (can take a long time)
 ```sh
-time nice -n 19 python3 parallel_datasets_extractor.py datasets
+time nice -n 19 python3 extract.py datasets
 ```
 The execution of this command creates a file `metadata.json` inside each dataset folder created by `downloader.py`.
 

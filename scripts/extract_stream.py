@@ -2,6 +2,7 @@ import os
 import json
 import queue
 import logging
+import pathlib
 import argparse
 import lightrdf
 from slugify import slugify
@@ -170,11 +171,23 @@ if __name__ == "__main__":
 
             keys = metadata.keys()
             if "unusedFiles" in keys and len(metadata["unusedFiles"]) > 0:
-                for file in metadata["unusedFiles"]:
+                for entry in metadata["unusedFiles"]:
+                    file = entry["file"]
+
                     file_path = f"{datasets_folder}/{dataset}/{file}"
                     file_size = os.path.getsize(file_path)
 
-                    if file_size > SIZE_LIMIT:
+                    file_extension = None
+
+                    file_suffix = pathlib.Path(file_path).suffix.replace(".", "")
+                    for ext in RDF_SUFFIXES:
+                        if ext in file_suffix:
+                            file_extension = ext
+
+                    if file_extension is None:
+                        log.warning(f"{file_path} extension does not match allowed values")
+
+                    if file_extension is not None and file_size > SIZE_LIMIT:
                         files_to_process.put((dataset, file))
 
     # Process the jobs from the queue sequentially
