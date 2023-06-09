@@ -133,7 +133,7 @@ def process_file(datasets_folder: str, dataset: str, file: str):
     with open(metadata_file_path, "r+") as mf:
         data = json.load(mf, strict=False)
 
-        data["unusedFiles"].remove(file)
+        data["unusedFiles"] = [e for e in data["unusedFiles"] if e["file"] != file]
         data["extracted"].append(entry)
 
         new_content = json.dumps(data, ensure_ascii=False, indent=4)
@@ -185,7 +185,9 @@ if __name__ == "__main__":
                             file_extension = ext
 
                     if file_extension is None:
-                        log.warning(f"{file_path} extension does not match allowed values")
+                        log.warning(
+                            f"{file_path} extension does not match allowed values"
+                        )
 
                     if file_extension is not None and file_size > SIZE_LIMIT:
                         files_to_process.put((dataset, file))
